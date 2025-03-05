@@ -1,0 +1,142 @@
+.container_model_insert{
+  position: absolute;
+  top: 8rem;
+  left: 2rem;
+}
+
+.dropbtn_in_pro, .edit_delete{
+  background-color: #4CAF50;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  text-decoration: none;
+}
+
+.dropdown_in_pro {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content_in_pro {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content_in_pro button {
+  color: black;
+  padding: 12px 35px;
+  text-decoration: none;
+  display: block;
+  background-color: inherit;
+  border-style: none;
+}
+
+.dropdown-content_in_pro button:hover {background-color: #f1f1f1}
+
+.dropdown_in_pro:hover .dropdown-content_in_pro {
+  display: block;
+}
+
+.dropdown_in_pro:hover .dropbtn_in_pro,  .EditDeleteCon:hover .edit_delete{
+  background-color: #3e8e41;
+}
+
+.text_header{
+  position: absolute;
+  top: 5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #f9f9f9;
+}
+
+
+#container_add_product {
+  max-width: 900px;
+  margin: 50px auto;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+.form_heading {
+  text-align: center;
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+/* Input and Labels */
+.input_group {
+  margin-bottom: 20px;
+}
+
+.form_label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: #555;
+}
+
+.form_control {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 16px;
+  box-sizing: border-box;
+}
+
+.form_control:focus {
+  border-color: #4CAF50;
+  outline: none;
+}
+
+/* Button */
+.submit_btn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 12px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 100%;
+  transition: background-color 0.3s;
+}
+
+.submit_btn:hover {
+  background-color: #45a049;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .container_add_product {
+      padding: 15px;
+  }
+
+  .form_heading {
+      font-size: 20px;
+  }
+
+  .input_group {
+      margin-bottom: 15px;
+  }
+}
+
+.product_section{
+  display: none;
+}
+
+.EditDeleteCon{
+position: absolute;
+top: 16rem;
+left: 2rem;
+}

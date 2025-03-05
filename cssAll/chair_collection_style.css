@@ -1,0 +1,219 @@
+.container_select_chair_collection, .container_office_chair, .container_motor_chair {
+    max-width: 100%;
+    height: 90vh;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: #262626;
+
+    .container_select_chair {
+        max-width: 27%;
+        position: relative;
+        cursor: pointer;
+        img {
+            border-radius: 30px;
+            width: 100%;
+            opacity: 0.6;
+        }
+        h2 {
+            color: white;
+            position: absolute;
+            top: 70%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+    }
+
+    .text_header {
+        position: absolute;
+        color: azure;
+        top: 10%;
+    }
+}
+
+.container_select_chair:hover img {
+    opacity: 1;
+    transform: translateY(-5rem);
+    cursor: pointer;
+    transition: 0.4s;
+    border: 10px groove #d7a118;
+}
+
+.container_select_chair:hover h2 {
+    top: 50%;
+    transition: 0.4s;
+}
+
+#Madal_recliner_chair, #modal_office_chair, #modal_motor_chair {
+    display: none;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+#close_modal_recliner_chair, #close_modal_office_chair, #close_modal_motor_chair {
+    position: absolute;
+    top: 2rem;
+    right: 3rem;
+    color: white;
+    font-size: 20px;
+    padding: 0 0.6rem;
+    cursor: pointer;
+    border: 1px solid white;
+}
+
+.container_select_recliner_chair, .container_select_office_chair, .container_select_motor_chair {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin: 5rem;
+    background-color: aliceblue;
+    border-radius: 30px;
+    gap: 1rem;
+    height: 80vh;
+}
+
+.container_slideshow_recliner_chair, .container_slideshow_office_chair, .container_slideshow_motor_chair {
+    position: relative;
+}
+
+.img_and_slideshow_re_ch, .img_and_slideshow_oc, .img_and_slideshow_mc {
+    position: absolute;
+    top: -5rem;
+    transition: transform 0.5s ease;
+    img {
+        width: 100%;
+        padding: 5rem;
+    }
+}
+
+.name_model {
+    font-size: 25px;
+    position: absolute;
+    bottom: 3rem;
+    left: 50%;
+    transform: translate(-50%);
+}
+
+.prev, .next {
+    position: absolute;
+    top: 50%;
+    cursor: pointer;
+    padding: 1rem;
+    border-radius: 100%;
+    border: 1px solid red;
+}
+.prev {
+    left: 4rem;
+}
+.next {
+    right: 4rem;
+}
+
+.Description_ease {
+    margin: 1rem;
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+.description_item {
+    position: relative;
+    text-align: center;
+}
+
+.show_img_description_recliner_chair, .show_img_description_office_chair, .show_img_description_motor_chair {
+    margin-top: 5px;
+    display: none;
+    position: absolute;
+    width: 300px;
+    height: auto;
+    transform: translateX(-10rem);
+    background-color: #000000d5;
+    border-radius: 20px;
+    box-shadow: 5px 10px 5px orange;
+}
+
+.btn_show_description_recliner_chair, .btn_show_description_office_chair, .btn_show_description_motor_chair {
+    border: 3px solid gray;
+    padding: 5px 10px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.description_item:hover .show_img_description_recliner_chair, .description_item:hover .show_img_description_office_chair, .description_item:hover .show_img_description_motor_chair {
+    display: block;
+}
+
+.btn_show_upholstery_rc, .btn_show_upholstery_oc, .btn_show_upholstery_mc {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.upholstery_item {
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 3rem;
+    row-gap: 1rem;
+}
+
+.price {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.select_this_item {
+    border: 3px solid rgb(34, 193, 34);
+}
+
+.price_container {
+    position: absolute;
+    right: 0%;
+}
+
+.price_container {
+    display: flex;
+    flex-direction: column;
+}
+
+.quantityAndSubmit {
+    display: flex;
+    justify-content: space-evenly;
+    cursor: pointer;
+    gap: 1rem;
+}
+
+.add_quantity {
+    background: #007BFF;
+    color: white;
+    border: none;
+    padding: 10px;
+    margin: 0 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 18px;
+}
+
+.add_quantity:hover {
+    background: #0056b3;
+}
+
+#add_cart {
+    background: #FF5733;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    border-radius: 5px;
+    margin-top: 10px;
+    transition: background 0.3s;
+}
+
+#add_cart:hover {
+    background: #c70039;
+}

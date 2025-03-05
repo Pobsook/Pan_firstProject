@@ -1,0 +1,181 @@
+.container_model_insert{
+    position: absolute;
+    top: 9rem;
+    left: 2rem;
+}
+
+.dropbtn_in_pro, .edit_delete{
+    background-color: #4CAF50;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    text-decoration: none;
+}
+
+.dropdown_in_pro:hover .dropbtn_in_pro,  .EditDeleteCon:hover .edit_delete{
+    background-color: #3e8e41;
+}
+
+.text_header{
+    position: absolute;
+    top: 5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #f9f9f9;
+}
+
+#container_add_product {
+    max-width: 900px;
+    margin: 50px auto;
+    padding: 30px;
+    background-color: #fff;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    background-color: #f9f9f9; /* เพิ่มพื้นหลังที่นุ่มนวล */
+    transition: all 0.3s ease-in-out;
+    overflow: hidden; /* ซ่อนบางส่วนที่ล้นออกมา */
+}
+
+#container_add_product:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* เพิ่มเงาเมื่อเมาส์วาง */
+}
+
+.form_heading {
+    text-align: center;
+    font-size: 26px;
+    margin-bottom: 20px;
+    color: #4CAF50; /* ทำให้หัวเรื่องโดดเด่น */
+}
+
+.search_con {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.key_search, .type_search {
+    padding: 12px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    width: 45%;
+    box-sizing: border-box; /* ทำให้ขนาด input คำนวณรวม padding และ border */
+    transition: border-color 0.3s ease;
+}
+
+.key_search:focus, .type_search:focus {
+    border-color: #4CAF50; /* เปลี่ยนสีเมื่อเลือก */
+}
+
+.search_con button {
+    background-color: #4CAF50;
+    color: white;
+    font-size: 16px;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.search_con button:hover {
+    background-color: #45a049; /* เปลี่ยนสีเมื่อโฮเวอร์ */
+}
+
+#result_table {
+    width: 100%;
+    margin-top: 20px;
+    border-collapse: collapse;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow-x: auto; /* เพิ่มการเลื่อนแนวนอนเมื่อข้อมูลเกิน */
+    table-layout: fixed; /* กำหนดตารางให้มีขนาดคงที่ */
+}
+
+#result_table th, #result_table td {
+    padding: 12px 15px;
+    text-align: left;
+    border: 1px solid #ddd;
+    color: #333;
+    word-wrap: break-word; /* ช่วยให้ข้อความยาวเกินไปตัดเป็นบรรทัด */
+    box-sizing: border-box; /* ทำให้ขนาดของ td คำนวณรวม border */
+}
+
+#result_table th {
+    background-color: #4CAF50;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+#result_table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+#result_table tr:hover {
+    background-color: #f1f1f1;
+}
+
+#result_table .action-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+#result_table .action-buttons button {
+    padding: 6px 12px;
+    background-color: #ff9800;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#result_table .action-buttons button:hover {
+    background-color: #e68900;
+}
+
+.text_error {
+    display: block;
+    margin-top: 20px;
+    color: red;
+    font-size: 14px;
+    text-align: center;
+}
+
+/* เพิ่มความสามารถในการเลื่อนตารางแนวนอน */
+.con_show_edit {
+    max-height: 400px; /* จำกัดความสูง */
+    overflow-y: auto; /* เพิ่มการเลื่อนแนวตั้ง */
+}
+
+/* ปรับขนาด input ในตาราง */
+#result_table input[type="text"] {
+    width: 100%; /* ทำให้ input ขยายให้เต็มความกว้างของเซลล์ */
+    box-sizing: border-box; /* คำนวณ padding และ border */
+    padding: 8px;
+    font-size: 14px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+#result_table input[type="file"] {
+    padding: 8px;
+    font-size: 14px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    width: 100%; /* ทำให้ input ขยายเต็มความกว้าง */
+    box-sizing: border-box;
+}
+
+.EditDeleteCon{
+position: absolute;
+top: 16rem;
+left: 2rem;
+}
