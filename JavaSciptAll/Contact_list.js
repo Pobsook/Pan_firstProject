@@ -1,32 +1,30 @@
+document.addEventListener("DOMContentLoaded", function () {
+    function showIcon() {
+        let openlineIcon = document.getElementById("lineIcon");
+        let openigIcon = document.getElementById("igIcon");
+        let openfacebookIcon = document.getElementById("facebookIcon");
+        let openmessengerIcon = document.getElementById("messengerIcon");
 
-// Contact list
-let openIcon = document.getElementById("chatIcon");
-let openlineIcon = document.getElementById("lineIcon");
-let openigIcon = document.getElementById("igIcon");
-let openfacebookIcon = document.getElementById("facebookIcon");
-let openmessengerIcon = document.getElementById("messengerIcon");
+        let isOpen = openlineIcon.classList.contains("openlineIcon");
 
-openIcon.onclick = function() {
-    // เช็คว่า openlineIcon อยู่ในสถานะเปิดหรือปิด
-    if (openlineIcon.classList.contains("openlineIcon")) {
-        // ปิดไอคอนและเปลี่ยนแปลง class
-        openlineIcon.classList.remove("openlineIcon");
-        openlineIcon.classList.add("closedlineIcon");
-        openigIcon.classList.remove("openigIcon");
-        openigIcon.classList.add("closedigIcon");
-        openfacebookIcon.classList.remove("openfacebookIcon");
-        openfacebookIcon.classList.add("closedfacebookIcon");
-        openmessengerIcon.classList.remove("openmessengerIcon");
-        openmessengerIcon.classList.add("closedmessengerIcon");
-    } else {
-        // เปิดไอคอนและเปลี่ยนแปลง class
-        openlineIcon.classList.remove("closedlineIcon");
-        openlineIcon.classList.add("openlineIcon");
-        openigIcon.classList.remove("closedigIcon");
-        openigIcon.classList.add("openigIcon");
-        openfacebookIcon.classList.remove("closedfacebookIcon");
-        openfacebookIcon.classList.add("openfacebookIcon");
-        openmessengerIcon.classList.remove("closedmessengerIcon");
-        openmessengerIcon.classList.add("openmessengerIcon");
+        openlineIcon.classList.toggle("openlineIcon", !isOpen);
+        openlineIcon.classList.toggle("closedlineIcon", isOpen);
+
+        openigIcon.classList.toggle("openigIcon", !isOpen);
+        openigIcon.classList.toggle("closedigIcon", isOpen);
+
+        openfacebookIcon.classList.toggle("openfacebookIcon", !isOpen);
+        openfacebookIcon.classList.toggle("closedfacebookIcon", isOpen);
+
+        openmessengerIcon.classList.toggle("openmessengerIcon", !isOpen);
+        openmessengerIcon.classList.toggle("closedmessengerIcon", isOpen);
     }
-}
+
+    // ตรวจสอบว่า chatIcon มีอยู่จริง
+    let chatIcon = document.getElementById("chatIcon");
+    if (chatIcon) {
+        chatIcon.addEventListener("click", showIcon);
+    } else {
+        console.error("ไม่พบปุ่ม chatIcon ใน HTML");
+    }
+});

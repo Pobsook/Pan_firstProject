@@ -1,8 +1,6 @@
 // เปิดปิด Modal
-
 document.addEventListener("DOMContentLoaded", function() {
 
-console.log('ddddddd')
 let select_recliner_chair = document.getElementById('select_recliner_chair');
 let Madal_recliner_chair = document.getElementById('Madal_recliner_chair');
 let close_modal_recliner_chair = document.getElementById('close_modal_recliner_chair');
