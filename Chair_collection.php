@@ -144,16 +144,11 @@ $callback_upholstery_centurian_leather_mc_result = $callback_upholstery_centuria
 
                 <div style="border: 2px solid blue; margin: 1rem 1rem 0.5rem 0; position:relative; display:grid; grid-template: 1fr 1fr">
                     <div class="detail_product">
-                        <span id="model_rc_selected" style=" font-size:larger">
-                            Model : 
-                        </span><br>
-                        <span id="description_rc_selected" style="font-size:larger">
-                            Description : 
-                        </span><br>
-                        <span id="upholstery_rc_selected" style="font-size:larger">
-                            Upholstery Color :
-                        </span>
+                        <span id="model_rc_selected" style=" font-size:larger">Model : </span><br>
+                        <span id="description_rc_selected" style="font-size:larger">Description : </span><br>
+                        <span id="upholstery_rc_selected" style="font-size:larger">Upholstery Color :</span>
                     </div>
+
                     <div class="price_container">
                         <h2 class="price_rc" style="margin: 0.5rem 2rem;">ราคา :    บาท</h2>
                         <div class="quantityAndSubmit">
@@ -162,12 +157,10 @@ $callback_upholstery_centurian_leather_mc_result = $callback_upholstery_centuria
                                 <span class="quantity_re_ch"> จำนวน :  ชิ้น</span>
                                 <button class="add_quantity" style="padding: 2px 5px;" onclick="addquantity_re_cha(1)">&#10095;</button>
                             </div>
-                            <div>
-                                <form action="addcart_process.php" method="post">
-                                    <input type="hidden" value="recliner_chair" name="price_submit">
-                                    <button id="add_cart"  type="submit">Add Cart</button>
-                                </form>
-                            </div>
+                            <form action="addcart_process.php" method="post">
+                                <input type="hidden" value="recliner_chair" name="price_submit">
+                                <button id="add_cart" type="submit">Add Cart</button>
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -223,24 +216,26 @@ $callback_upholstery_centurian_leather_mc_result = $callback_upholstery_centuria
                     </div>
                 </div>
 
-                <div class="detail_product">
-                    <span id="model_oc_selected" style="font-size: larger">Model: </span><br>
-                    <span id="description_oc_selected" style="font-size: larger">Description: </span><br>
-                    <span id="upholstery_oc_selected" style="font-size: larger">Upholstery Color: </span>
-                </div>
+                <div style="border: 2px solid blue; margin: 1rem 1rem 0.5rem 0; position:relative; display:grid; grid-template: 1fr 1fr">
+                    <div class="detail_product">
+                        <span id="model_oc_selected" style="font-size: larger">Model: </span><br>
+                        <span id="description_oc_selected" style="font-size: larger">Description: </span><br>
+                        <span id="upholstery_oc_selected" style="font-size: larger">Upholstery Color: </span>
+                    </div>
 
-                <div class="price_container">
-                    <h2 class="price_oc" style="margin: 0.5rem 2rem;">ราคา : บาท</h2>
-                    <div class="quantityAndSubmit">
-                        <div class="quantity_con">
-                            <button class="add_quantity" onclick="addquantity_oc(-1)">&#10094;</button>
-                            <span class="quantity_oc"> จำนวน : ชิ้น</span>
-                            <button class="add_quantity" onclick="addquantity_oc(1)">&#10095;</button>
+                    <div class="price_container">
+                        <h2 class="price_oc" style="margin: 0.5rem 2rem;">ราคา : บาท</h2>
+                        <div class="quantityAndSubmit">
+                            <div class="quantity_con">
+                                <button class="add_quantity" style="padding: 2px 5px;" onclick="addquantity_oc(-1)">&#10094;</button>
+                                <span class="quantity_oc"> จำนวน : ชิ้น</span>
+                                <button class="add_quantity" style="padding: 2px 5px;" onclick="addquantity_oc(1)">&#10095;</button>
+                            </div>
+                            <form action="addcart_process.php" method="post">
+                                <input type="hidden" value="office_chair" name="price_submit">
+                                <button id="add_cart" type="submit">Add Cart</button>
+                            </form>
                         </div>
-                        <form action="addcart_process.php" method="post">
-                            <input type="hidden" value="office_chair" name="price_submit">
-                            <button id="add_cart" type="submit">Add Cart</button>
-                        </form>
                     </div>
                 </div>
             </div>
@@ -288,30 +283,31 @@ $callback_upholstery_centurian_leather_mc_result = $callback_upholstery_centuria
                     </div>
                     <h3 style="margin: 0.5rem;">สีหนัง - Centurian Leather</h3>
                     <div class="upholstery_item">
-                        <?php while($row_upholstery_centurian_leather_mc = $callback_upholstery_centurian_leather_mc->fetch_assoc()): ?>
+                        <?php while($row_upholstery_centurian_leather_mc = $callback_upholstery_centurian_leather_mc_result->fetch_assoc()): ?>
                             <button class="btn_show_upholstery_mc" style="background-image: url(<?php echo 'PicZedere/upload_upholstery_color_img/' . $row_upholstery_centurian_leather_mc['upholstery_color_img'] ?>);" data-upholstery="<?php echo $row_upholstery_centurian_leather_mc['upholstery_color_name'] ?>"></button>
                         <?php endwhile; ?>
                     </div>
                 </div>
+                <div style="border: 2px solid blue; margin: 1rem 1rem 0.5rem 0; position:relative; display:grid; grid-template: 1fr 1fr">
+                    <div class="detail_product">
+                        <span id="model_mc_selected" style="font-size: larger">Model: </span><br>
+                        <span id="description_mc_selected" style="font-size: larger">Description: </span><br>
+                        <span id="upholstery_mc_selected" style="font-size: larger">Upholstery Color: </span>
+                    </div>
 
-                <div class="detail_product">
-                    <span id="model_mc_selected" style="font-size: larger">Model: </span><br>
-                    <span id="description_mc_selected" style="font-size: larger">Description: </span><br>
-                    <span id="upholstery_mc_selected" style="font-size: larger">Upholstery Color: </span>
-                </div>
-
-                <div class="price_container">
-                    <h2 class="price_mc" style="margin: 0.5rem 2rem;">ราคา : บาท</h2>
-                    <div class="quantityAndSubmit">
-                        <div class="quantity_con">
-                            <button class="add_quantity" onclick="addquantity_mc(-1)">&#10094;</button>
-                            <span class="quantity_mc"> จำนวน : ชิ้น</span>
-                            <button class="add_quantity" onclick="addquantity_mc(1)">&#10095;</button>
+                    <div class="price_container">
+                        <h2 class="price_mc" style="margin: 0.5rem 2rem;">ราคา : บาท</h2>
+                        <div class="quantityAndSubmit">
+                            <div class="quantity_con">
+                                <button class="add_quantity" style="padding: 2px 5px;" onclick="addquantity_mc(-1)">&#10094;</button>
+                                <span class="quantity_mc"> จำนวน : ชิ้น</span>
+                                <button class="add_quantity" style="padding: 2px 5px;" onclick="addquantity_mc(1)">&#10095;</button>
+                            </div>
+                            <form action="addcart_process.php" method="post">
+                                <input type="hidden" value="motor_chair" name="price_submit">
+                                <button id="add_cart" type="submit">Add Cart</button>
+                            </form>
                         </div>
-                        <form action="addcart_process.php" method="post">
-                            <input type="hidden" value="motor_chair" name="price_submit">
-                            <button id="add_cart" type="submit">Add Cart</button>
-                        </form>
                     </div>
                 </div>
             </div>

@@ -191,7 +191,6 @@ let slideIndexRC = 1;
 let slideIndexOC = 1;
 
 window.plusSlidesRC = function(n) {
-
     slideIndexRC += n;
     showSlideRC(slideIndexRC);
 }
@@ -443,6 +442,7 @@ $(document).ready(function() {
                 if(response == 'เก็บข้อมูลสำเร็จ') {
                     $('.btn_show_upholstery_mc').removeClass('select_this_item');
                     btn.addClass('select_this_item');
+                    ajax_mix();
                 } else {
                     alert('เก็บข้อมูลไม่สำเร็จ');
                 }
