@@ -2,7 +2,6 @@
 session_start();
 require('connect.php');
 
-// คำสั่งการบันทึกข้อมูลที่เลือก
 if (
     isset($_POST['select_model_rc']) || isset($_POST['select_description_rc']) || isset($_POST['select_upholstery_rc']) || isset($_POST['quantityIndex_re_ch']) || 
     isset($_POST['select_model_oc']) || isset($_POST['select_description_oc']) || isset($_POST['select_upholstery_oc']) || isset($_POST['quantityIndex_oc']) || 
@@ -63,7 +62,8 @@ if (
     }
     if (isset($_POST['quantityIndex_mc'])) {
         $_SESSION['motor_chair']['quantity'] = max(1, intval($_POST['quantityIndex_mc'])); // ป้องกันค่า 0 หรือติดลบ
-    } elseif (!isset($_SESSION['motor_chair']['quantity'])) {
+    }
+    if (!isset($_POST['quantityIndex_mc']) && empty($_SESSION['motor_chair']['quantity'])) {
         $_SESSION['motor_chair']['quantity'] = 1;
     }
     

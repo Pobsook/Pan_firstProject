@@ -265,13 +265,13 @@ function showSlideMC(n) {
     }
     slidesMC[slideIndexMC - 1].style.display = 'block';
 
-    let modelName = slidesOC[slideIndexOC - 1].querySelector('.name_model').getAttribute('data-model');
+    let modelName = slidesMC[slideIndexMC - 1].querySelector('.name_model').getAttribute('data-model');
     $.ajax({
         url: 'select_product_process.php',
         type: 'post',
         data: {
             select_model_mc: modelName,
-            slideIndexOC: slideIndexOC,
+            slideIndexMC: slideIndexMC,
         },
         success: function() {
             ajax_mix();
