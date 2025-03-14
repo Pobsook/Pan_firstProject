@@ -1,4 +1,3 @@
-// เปิดปิด Modal
 document.addEventListener("DOMContentLoaded", function() {
 
 let select_recliner_chair = document.getElementById('select_recliner_chair');
@@ -104,7 +103,7 @@ function ajax_mix() {
 }
 
 
-function addquantity_re_cha(n) {
+window.addquantity_re_cha = function(n) {
     $.ajax({
         url: 'select_product_process.php',
         type: 'post',
@@ -113,8 +112,10 @@ function addquantity_re_cha(n) {
             let data = JSON.parse(response);
             let quantity = parseInt(data.quantity_rc) || 1;
 
+            console.log("จำนวนเก่า RC:", quantity);
             quantity += n;
             if (quantity < 1) quantity = 1;
+            console.log("จำนวนใหม่ RC:", quantity);
 
             $.ajax({
                 url: 'select_product_process.php',
@@ -131,7 +132,7 @@ function addquantity_re_cha(n) {
     });
 }
 
-function addquantity_oc(n) {
+window.addquantity_oc = function(n)  {
     $.ajax({
         url: 'select_product_process.php',
         type: 'post',
@@ -158,7 +159,7 @@ function addquantity_oc(n) {
     });
 }
 
-function addquantity_mc(n) {
+window.addquantity_mc = function(n)  {
     $.ajax({
         url: 'select_product_process.php',
         type: 'post',
@@ -189,18 +190,20 @@ function addquantity_mc(n) {
 let slideIndexRC = 1;
 let slideIndexOC = 1;
 
-function plusSlidesRC(n) {
+window.plusSlidesRC = function(n) {
+
     slideIndexRC += n;
     showSlideRC(slideIndexRC);
 }
 
-function plusSlidesOC(n){
+window.plusSlidesOC = function(n) {
     slideIndexOC += n;
     showSlideOC(slideIndexOC);
 }
 
 function showSlideRC(n) {
     let slidesRC = document.getElementsByClassName('img_and_slideshow_re_ch');
+    console.log(slidesRC.length);
     if (n > slidesRC.length) slideIndexRC = 1;
     if (n < 1) slideIndexRC = slidesRC.length;
 
@@ -248,9 +251,8 @@ function showSlideOC(n) {
 }
 
 let slideIndexMC = 1;
-showSlideMC(slideIndexMC);
 
-function plusSlidesMC(n) {
+window.plusSlidesMC = function(n)  {
     slideIndexMC += n;
     showSlideMC(slideIndexMC);
 }

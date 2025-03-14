@@ -61,7 +61,7 @@ if (
         $_SESSION['motor_chair']['upholstery'] = $_POST['select_upholstery_mc'];
     }
     if (isset($_POST['quantityIndex_mc'])) {
-        $_SESSION['motor_chair']['quantity'] = max(1, intval($_POST['quantityIndex_mc'])); // ป้องกันค่า 0 หรือติดลบ
+        $_SESSION['motor_chair']['quantity'] = intval($_POST['quantityIndex_mc']);
     }
     if (!isset($_POST['quantityIndex_mc']) && empty($_SESSION['motor_chair']['quantity'])) {
         $_SESSION['motor_chair']['quantity'] = 1;
