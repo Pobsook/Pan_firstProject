@@ -35,6 +35,8 @@ closeModalmotorChair.onclick =  function(){
     modalmotorChair.style.display = 'none';
 }
 
+
+
 function ajax_mix() {
     $.ajax({
         url: 'select_product_process.php',

@@ -59,7 +59,7 @@ $callback_upholstery_centurian_leather_mc_result = $callback_upholstery_centuria
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chair_collection</title>
-    <link rel="stylesheet" href="cssAll/chair_collection_style.css">
+    <link rel="stylesheet" href="cssAll/collection_style.css">
     <link rel="stylesheet" href="cssAll/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>

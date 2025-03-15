@@ -1,11 +1,56 @@
-<?php 
-    session_start();
-    date_default_timezone_set('Asia/Bangkok');
-    require("connect.php");
+<?php
+session_start();
+date_default_timezone_set('Asia/Bangkok');
+require("connect.php");
 
-    $callback_model = $connect -> prepare("SELECT * FROM model WHERE product_type = 'recliner_chair'");
-    $callback_model -> execute();
-    $callback_model_result = $callback_model -> get_result();
+$callback_model_recliner_sofa = $connect->prepare("SELECT * FROM model WHERE product_type = 'recliner_sofa'");
+$callback_model_recliner_sofa->execute();
+$callback_model_recliner_sofa_result = $callback_model_recliner_sofa->get_result();
+
+$callback_description_recliner_sofa = $connect->prepare("SELECT * FROM description WHERE description_type = 'recliner_sofa'");
+$callback_description_recliner_sofa->execute();
+$callback_description_recliner_sofa_result = $callback_description_recliner_sofa->get_result();
+
+$callback_model_sofa_fix = $connect->prepare("SELECT * FROM model WHERE product_type = 'sofa_fix'");
+$callback_model_sofa_fix->execute();
+$callback_model_sofa_fix_result = $callback_model_sofa_fix->get_result();
+
+$callback_description_sofa_fix = $connect->prepare("SELECT * FROM description WHERE description_type = 'sofa_fix'");
+$callback_description_sofa_fix->execute();
+$callback_description_sofa_fix_result = $callback_description_sofa_fix->get_result();
+
+$callback_upholstery_natural_leather_rs = $connect->prepare("SELECT * FROM upholstery_color WHERE upholstery_color_type = 'natural_leather'");
+$callback_upholstery_natural_leather_rs->execute();
+$callback_upholstery_natural_leather_rs_result = $callback_upholstery_natural_leather_rs->get_result();
+
+$callback_upholstery_centurian_leather_rs = $connect->prepare("SELECT * FROM upholstery_color WHERE upholstery_color_type = 'centurian_leather'");
+$callback_upholstery_centurian_leather_rs->execute();
+$callback_upholstery_centurian_leather_rs_result = $callback_upholstery_centurian_leather_rs->get_result();
+
+$callback_upholstery_natural_leather_sf = $connect->prepare("SELECT * FROM upholstery_color WHERE upholstery_color_type = 'natural_leather'");
+$callback_upholstery_natural_leather_sf->execute();
+$callback_upholstery_natural_leather_sf_result = $callback_upholstery_natural_leather_sf->get_result();
+
+$callback_upholstery_centurian_leather_sf = $connect->prepare("SELECT * FROM upholstery_color WHERE upholstery_color_type = 'centurian_leather'");
+$callback_upholstery_centurian_leather_sf->execute();
+$callback_upholstery_centurian_leather_sf_result = $callback_upholstery_centurian_leather_sf->get_result();
+
+$callback_model_sofa_motor = $connect->prepare("SELECT * FROM model WHERE product_type = 'motor_sofa'");
+$callback_model_sofa_motor->execute();
+$callback_model_sofa_motor_result = $callback_model_sofa_motor->get_result();
+
+$callback_description_sofa_motor = $connect->prepare("SELECT * FROM description WHERE description_type = 'motor_sofa'");
+$callback_description_sofa_motor->execute();
+$callback_description_sofa_motor_result = $callback_description_sofa_motor->get_result();
+
+$callback_upholstery_natural_leather_sm = $connect->prepare("SELECT * FROM upholstery_color WHERE upholstery_color_type = 'natural_leather'");
+$callback_upholstery_natural_leather_sm->execute();
+$callback_upholstery_natural_leather_sm_result = $callback_upholstery_natural_leather_sm->get_result();
+
+$callback_upholstery_centurian_leather_sm = $connect->prepare("SELECT * FROM upholstery_color WHERE upholstery_color_type = 'centurian_leather'");
+$callback_upholstery_centurian_leather_sm->execute();
+$callback_upholstery_centurian_leather_sm_result = $callback_upholstery_centurian_leather_sm->get_result();
+
 ?>
 
 <!DOCTYPE html>
@@ -13,49 +58,262 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chair_collection</title>
-    <link rel="stylesheet" href="cssAll/Sofa_collection_style.css">
+    <title>Sofa Collection</title>
+    <link rel="stylesheet" href="cssAll/collection_style.css">
     <link rel="stylesheet" href="cssAll/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Prompt:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 </head>
 <body>
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <script src="JavasciptAll/chair_collection_page.js" defer></script>
+    <script src="JavasciptAll/Contact_list.js"></script>
+    <script src="JavasciptAll/Modal_Collection.js"></script>
+    <script src="JavasciptAll/Index.js"></script>
+
+
     <?php require("alert.php"); ?>
     <?php require("navbar.php"); ?>
     <?php require("contact.php"); ?>
 
-    <div class="container_select_sofa_collection">
-        <div class="text_header"><h1>เลือกประเภทสินค้าที่คุณต้องการ</h1></div>
-        <div class="container_select_sofa" id="select_recliner_sofa">
-            <img src="PicZedere\recliner_sofa.jpg">
-            <h2 class="text_select_sofa">Recliner Sofa</h2>
+    <div class="container_select_collection">
+        <div class="text_header"><h1>เลือกประเภทโซฟาที่คุณต้องการ</h1></div>
+        <div class="container_select_item" id="select_recliner_sofa">
+            <img src="PicZedere/recliner_sofa.jpg">
+            <h2 class="text_select_chair">Recliner Sofa</h2>
         </div>
-        <div class="container_select_sofa" id="select_sofa_fix">
-            <img src="PicZedere\sofa_fix.jpg">
-            <h2 class="text_select_sofa">Sofa Fix</h2>
+        <div class="container_select_item" id="select_sofa_fix">
+            <img src="PicZedere/sofa_fix.jpg">
+            <h2 class="text_select_chair">Sofa Fix</h2>
         </div>
-        <div class="container_select_sofa " id="select_motor_sofa">
-            <img src="PicZedere\sofa_motor.jpg">
-            <h2 class="text_select_sofa">Sofa Motor</h2>
+        <div class="container_select_item" id="select_motor_sofa">
+            <img src="PicZedere/sofa_motor.jpg">
+            <h2 class="text_select_chair">Motor sofa</h2>
         </div>
     </div>
 
-    <!-- Modal Recliner Chair-->
-    <div class="container_recliner_chair">
-        <?php while($row = $callback_model_result -> fetch_assoc()): ?>
-        <div class="ease_chair_container">
-            <img src="PicZedere/upload_model_img/<?php echo $row['model_img']; ?>" alt="" class="image_chair">
-            <div class="overlay_chair">
-                <div class="text"><?php echo $row['model_name']; ?></div>
+    <!-- Modal Recliner Sofa -->
+    <div id="modal_recliner_sofa">
+        <span id="close_modal_recliner_sofa">x</span>
+        <div class="container_select">
+            <div class="container_slideshow">
+                <?php while($row_model_recliner_sofa = $callback_model_recliner_sofa_result -> fetch_assoc()): ?>
+                <div class="img_and_slideshow_rs">
+                    <img src="PicZedere/upload_model_img/<?php echo $row_model_recliner_sofa['model_img']; ?>">
+                    <h3 class="name_model" data-model="<?php echo $row_model_recliner_sofa['model_name'] ?>">
+                        <?php echo $row_model_recliner_sofa['model_name'] ?>
+                    </h3>
+                </div>
+                <?php endwhile; ?>
+                <a class="prev" onclick="plusSlidesRS(-1)">&#10094;</a>
+                <a class="next" onclick="plusSlidesRS(1)">&#10095;</a>
+            </div>
+            <div class="object_select">
+                <div class="Description_recliner_sofa">
+                    <h3 style="margin: 1rem;">แบบขา</h3>
+                    <div class="Description_ease">
+                        <?php while($row_description_recliner_sofa = $callback_description_recliner_sofa_result -> fetch_assoc()): ?>
+                            <div class="description_item">
+                                <button class="btn_show_description_recliner_sofa" data-description="<?php echo $row_description_recliner_sofa['description_name'] ?>">
+                                    <?php echo $row_description_recliner_sofa['description_name'] ?>
+                                </button>
+                                <div class="show_img_description">
+                                    <img style="width: 300px;" src="<?php echo 'PicZedere/upload_description_img/' . $row_description_recliner_sofa['description_img'] ?>" >
+                                </div>
+                            </div>
+                        <?php endwhile ?>
+                    </div>
+                </div>
+
+                <div class="upholstery_ease">
+                    <h3 style="margin: 0.5rem;">สีหนัง - Natural Leather</h3>
+                    <div class="upholstery_item">
+                        <?php while($row_upholstery_natural_leather_rs = $callback_upholstery_natural_leather_rs_result -> fetch_assoc()): ?>
+                            <button class="btn_show_upholstery_rs" style="background-image: url(<?php echo 'PicZedere/upload_upholstery_color_img/' . $row_upholstery_natural_leather_rs['upholstery_color_img'] ?>);" data-upholstery="<?php echo $row_upholstery_natural_leather_rs['upholstery_color_name'] ?>"></button>
+                        <?php endwhile ?>
+                    </div>
+                    <h3 style="margin: 0.5rem;">สีหนัง - Centurian Leather</h3>
+                    <div class="upholstery_item">
+                        <?php while($row_upholstery_centurian_leather_rs = $callback_upholstery_centurian_leather_rs_result -> fetch_assoc()): ?>
+                            <button class="btn_show_upholstery_rs" style="background-image: url(<?php echo 'PicZedere/upload_upholstery_color_img/' . $row_upholstery_centurian_leather_rs['upholstery_color_img'] ?>);" data-upholstery="<?php echo $row_upholstery_centurian_leather_rs['upholstery_color_name'] ?>"></button>
+                        <?php endwhile ?>
+                    </div>
+                </div>
+
+                <div style="border: 2px solid blue; margin: 1rem 1rem 0.5rem 0; position:relative; display:grid; grid-template: 1fr 1fr">
+                    <div class="detail_product">
+                        <span id="model_rs_selected" style=" font-size:larger">Model : </span><br>
+                        <span id="description_rs_selected" style="font-size:larger">Description : </span><br>
+                        <span id="upholstery_rs_selected" style="font-size:larger">Upholstery Color :</span>
+                    </div>
+
+                    <div class="price_container">
+                        <h2 class="price_rs" style="margin: 0.5rem 2rem;">ราคา :    บาท</h2>
+                        <div class="quantityAndSubmit">
+                            <div class="quantity_con">
+                                <button class="add_quantity" style="padding: 2px 5px;" onclick="addquantity_rs(-1)">&#10094;</button>
+                                <span class="quantity_rs"> จำนวน :  ชิ้น</span>
+                                <button class="add_quantity" style="padding: 2px 5px;" onclick="addquantity_rs(1)">&#10095;</button>
+                            </div>
+                            <form action="addcart_process.php" method="post">
+                                <input type="hidden" value="recliner_sofa" name="price_submit">
+                                <button id="add_cart" type="submit">Add Cart</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-        <?php endwhile; ?>
     </div>
 
-    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
-    <script src="JavasciptAll/Contact_list.js"></script>
-    <script src="JavasciptAll/Modal_Collection.js"></script>
-    <script src="JavasciptAll/Index.js"></script>
+
+    <!-- Modal Sofa Fix -->
+    <div id="modal_sofa_fix">
+        <span id="close_modal_sofa_fix">x</span>
+        <div class="container_select">
+            <div class="container_slideshow">
+                <?php while($row_model_sofa_fix = $callback_model_sofa_fix_result -> fetch_assoc()): ?>
+                <div class="img_and_slideshow_sf">
+                    <img src="PicZedere/upload_model_img/<?php echo $row_model_sofa_fix['model_img']; ?>">
+                    <h3 class="name_model" data-model="<?php echo $row_model_sofa_fix['model_name'] ?>">
+                        <?php echo $row_model_sofa_fix['model_name'] ?>
+                    </h3>
+                </div>
+                <?php endwhile; ?>
+                <a class="prev" onclick="plusSlidesSF(-1)">&#10094;</a>
+                <a class="next" onclick="plusSlidesSF(1)">&#10095;</a>
+            </div>
+            <div class="object_select">
+                <div class="Description_sofa_fix">
+                    <h3 style="margin: 1rem;">แบบขา</h3>
+                    <div class="Description_ease">
+                        <?php while($row_description_sofa_fix = $callback_description_sofa_fix_result -> fetch_assoc()): ?>
+                            <div class="description_item">
+                                <button class="btn_show_description_sofa_fix" data-description="<?php echo $row_description_sofa_fix['description_name'] ?>">
+                                    <?php echo $row_description_sofa_fix['description_name'] ?>
+                                </button>
+                                <div class="show_img_description">
+                                    <img style="width: 300px;" src="<?php echo 'PicZedere/upload_description_img/' . $row_description_sofa_fix['description_img'] ?>" >
+                                </div>
+                            </div>
+                        <?php endwhile ?>
+                    </div>
+                </div>
+
+                <div class="upholstery_ease">
+                    <h3 style="margin: 0.5rem;">สีหนัง - Natural Leather</h3>
+                    <div class="upholstery_item">
+                        <?php while($row_upholstery_natural_leather_sf = $callback_upholstery_natural_leather_sf_result -> fetch_assoc()): ?>
+                            <button class="btn_show_upholstery_sf" style="background-image: url(<?php echo 'PicZedere/upload_upholstery_color_img/' . $row_upholstery_natural_leather_sf['upholstery_color_img'] ?>);" data-upholstery="<?php echo $row_upholstery_natural_leather_sf['upholstery_color_name'] ?>"></button>
+                        <?php endwhile ?>
+                    </div>
+                    <h3 style="margin: 0.5rem;">สีหนัง - Centurian Leather</h3>
+                    <div class="upholstery_item">
+                        <?php while($row_upholstery_centurian_leather_sf = $callback_upholstery_centurian_leather_sf_result -> fetch_assoc()): ?>
+                            <button class="btn_show_upholstery_sf" style="background-image: url(<?php echo 'PicZedere/upload_upholstery_color_img/' . $row_upholstery_centurian_leather_sf['upholstery_color_img'] ?>);" data-upholstery="<?php echo $row_upholstery_centurian_leather_sf['upholstery_color_name'] ?>"></button>
+                        <?php endwhile ?>
+                    </div>
+                </div>
+
+                <div style="border: 2px solid blue; margin: 1rem 1rem 0.5rem 0; position:relative; display:grid; grid-template: 1fr 1fr">
+                    <div class="detail_product">
+                        <span id="model_sf_selected" style=" font-size:larger">Model : </span><br>
+                        <span id="description_sf_selected" style="font-size:larger">Description : </span><br>
+                        <span id="upholstery_sf_selected" style="font-size:larger">Upholstery Color :</span>
+                    </div>
+
+                    <div class="price_container">
+                        <h2 class="price_sf" style="margin: 0.5rem 2rem;">ราคา :    บาท</h2>
+                        <div class="quantityAndSubmit">
+                            <div class="quantity_con">
+                                <button class="add_quantity" style="padding: 2px 5px;" onclick="addquantity_sf(-1)">&#10094;</button>
+                                <span class="quantity_sf"> จำนวน :  ชิ้น</span>
+                                <button class="add_quantity" style="padding: 2px 5px;" onclick="addquantity_sf(1)">&#10095;</button>
+                            </div>
+                            <form action="addcart_process.php" method="post">
+                                <input type="hidden" value="sofa_fix" name="price_submit">
+                                <button id="add_cart" type="submit">Add Cart</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal_sofa_motor">
+        <span id="close_modal_sofa_motor">x</span>
+        <div class="container_select">
+            <div class="container_slideshow">
+                <?php while($row_model_sofa_motor = $callback_model_sofa_motor_result -> fetch_assoc()): ?>
+                <div class="img_and_slideshow_sm">
+                    <img src="PicZedere/upload_model_img/<?php echo $row_model_sofa_motor['model_img']; ?>">
+                    <h3 class="name_model" data-model="<?php echo $row_model_sofa_motor['model_name'] ?>">
+                        <?php echo $row_model_sofa_motor['model_name'] ?>
+                    </h3>
+                </div>
+                <?php endwhile; ?>
+                <a class="prev" onclick="plusSlidesSM(-1)">&#10094;</a>
+                <a class="next" onclick="plusSlidesSM(1)">&#10095;</a>
+            </div>
+            <div class="object_select">
+                <div class="Description_sofa_motor">
+                    <h3 style="margin: 1rem;">แบบขา</h3>
+                    <div class="Description_ease">
+                        <?php while($row_description_sofa_motor = $callback_description_sofa_motor_result -> fetch_assoc()): ?>
+                            <div class="description_item">
+                                <button class="btn_show_description_sofa_motor" data-description="<?php echo $row_description_sofa_motor['description_name'] ?>">
+                                    <?php echo $row_description_sofa_motor['description_name'] ?>
+                                </button>
+                                <div class="show_img_description">
+                                    <img style="width: 300px;" src="<?php echo 'PicZedere/upload_description_img/' . $row_description_sofa_motor['description_img'] ?>" >
+                                </div>
+                            </div>
+                        <?php endwhile ?>
+                    </div>
+                </div>
+
+                <div class="upholstery_ease">
+                    <h3 style="margin: 0.5rem;">สีหนัง - Natural Leather</h3>
+                    <div class="upholstery_item">
+                        <?php while($row_upholstery_natural_leather_sm = $callback_upholstery_natural_leather_sm_result -> fetch_assoc()): ?>
+                            <button class="btn_show_upholstery_sm" style="background-image: url(<?php echo 'PicZedere/upload_upholstery_color_img/' . $row_upholstery_natural_leather_sm['upholstery_color_img'] ?>);" data-upholstery="<?php echo $row_upholstery_natural_leather_sm['upholstery_color_name'] ?>"></button>
+                        <?php endwhile ?>
+                    </div>
+                    <h3 style="margin: 0.5rem;">สีหนัง - Centurian Leather</h3>
+                    <div class="upholstery_item">
+                        <?php while($row_upholstery_centurian_leather_sm = $callback_upholstery_centurian_leather_sm_result -> fetch_assoc()): ?>
+                            <button class="btn_show_upholstery_sm" style="background-image: url(<?php echo 'PicZedere/upload_upholstery_color_img/' . $row_upholstery_centurian_leather_sm['upholstery_color_img'] ?>);" data-upholstery="<?php echo $row_upholstery_centurian_leather_sm['upholstery_color_name'] ?>"></button>
+                        <?php endwhile ?>
+                    </div>
+                </div>
+
+                <div style="border: 2px solid blue; margin: 1rem 1rem 0.5rem 0; position:relative; display:grid; grid-template: 1fr 1fr">
+                    <div class="detail_product">
+                        <span id="model_sm_selected" style=" font-size:larger">Model : </span><br>
+                        <span id="description_sm_selected" style="font-size:larger">Description : </span><br>
+                        <span id="upholstery_sm_selected" style="font-size:larger">Upholstery Color :</span>
+                    </div>
+
+                    <div class="price_container">
+                        <h2 class="price_sm" style="margin: 0.5rem 2rem;">ราคา :    บาท</h2>
+                        <div class="quantityAndSubmit">
+                            <div class="quantity_con">
+                                <button class="add_quantity" style="padding: 2px 5px;" onclick="addquantity_sm(-1)">&#10094;</button>
+                                <span class="quantity_sm"> จำนวน :  ชิ้น</span>
+                                <button class="add_quantity" style="padding: 2px 5px;" onclick="addquantity_sm(1)">&#10095;</button>
+                            </div>
+                            <form action="addcart_process.php" method="post">
+                                <input type="hidden" value="sofa_motor" name="price_submit">
+                                <button id="add_cart" type="submit">Add Cart</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
 </body>
 </html>
