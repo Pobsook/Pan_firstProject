@@ -1,4 +1,4 @@
-.container_select_chair_collection, .container_office_chair, .container_motor_chair {
+.container_select_collection {
     max-width: 100%;
     height: 90vh;
     display: flex;
@@ -6,7 +6,7 @@
     align-items: center;
     background-color: #262626;
 
-    .container_select_chair {
+    .container_select_item {
         max-width: 27%;
         position: relative;
         cursor: pointer;
@@ -31,7 +31,7 @@
     }
 }
 
-.container_select_chair:hover img {
+.container_select_item:hover img {
     opacity: 1;
     transform: translateY(-5rem);
     cursor: pointer;
@@ -39,12 +39,14 @@
     border: 10px groove #d7a118;
 }
 
-.container_select_chair:hover h2 {
+.container_select_item:hover h2 {
     top: 50%;
     transition: 0.4s;
 }
 
-#Madal_recliner_chair, #modal_office_chair, #modal_motor_chair {
+#Madal_recliner_chair, 
+#modal_office_chair, 
+#modal_motor_chair {
     display: none;
     position: absolute;
     top: 0;
@@ -54,7 +56,9 @@
     background-color: rgba(0, 0, 0, 0.8);
 }
 
-#close_modal_recliner_chair, #close_modal_office_chair, #close_modal_motor_chair {
+#close_modal_recliner_chair, 
+#close_modal_office_chair, 
+#close_modal_motor_chair {
     position: absolute;
     top: 2rem;
     right: 3rem;
@@ -65,7 +69,7 @@
     border: 1px solid white;
 }
 
-.container_select_recliner_chair, .container_select_office_chair, .container_select_motor_chair {
+.container_select  {
     display: grid;
     grid-template-columns: 1fr 1fr;
     margin: 5rem;
@@ -75,11 +79,13 @@
     height: 80vh;
 }
 
-.container_slideshow_recliner_chair, .container_slideshow_office_chair, .container_slideshow_motor_chair {
+.container_slideshow{
     position: relative;
 }
 
-.img_and_slideshow_re_ch, .img_and_slideshow_oc, .img_and_slideshow_mc {
+.img_and_slideshow_re_ch, 
+.img_and_slideshow_oc, 
+.img_and_slideshow_mc {
     position: absolute;
     top: -5rem;
     transition: transform 0.5s ease;
@@ -124,7 +130,7 @@
     text-align: center;
 }
 
-.show_img_description_recliner_chair, .show_img_description_office_chair, .show_img_description_motor_chair {
+.show_img_description{
     margin-top: 5px;
     display: none;
     position: absolute;
@@ -136,18 +142,22 @@
     box-shadow: 5px 10px 5px orange;
 }
 
-.btn_show_description_recliner_chair, .btn_show_description_office_chair, .btn_show_description_motor_chair {
+.btn_show_description_recliner_chair, 
+.btn_show_description_office_chair, 
+.btn_show_description_motor_chair {
     border: 3px solid gray;
     padding: 5px 10px;
     border-radius: 10px;
     cursor: pointer;
 }
 
-.description_item:hover .show_img_description_recliner_chair, .description_item:hover .show_img_description_office_chair, .description_item:hover .show_img_description_motor_chair {
+.description_item:hover .show_img_description{
     display: block;
 }
 
-.btn_show_upholstery_rc, .btn_show_upholstery_oc, .btn_show_upholstery_mc {
+.btn_show_upholstery_rc, 
+.btn_show_upholstery_oc, 
+.btn_show_upholstery_mc {
     width: 80px;
     height: 80px;
     border-radius: 50%;

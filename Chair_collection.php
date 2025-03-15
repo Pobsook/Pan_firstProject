@@ -76,17 +76,17 @@ $callback_upholstery_centurian_leather_mc_result = $callback_upholstery_centuria
     <?php require("navbar.php"); ?>
     <?php require("contact.php"); ?>
 
-    <div class="container_select_chair_collection">
+    <div class="container_select_collection">
         <div class="text_header"><h1>เลือกประเภทสินค้าที่คุณต้องการ</h1></div>
-        <div class="container_select_chair" id="select_recliner_chair">
+        <div class="container_select_item" id="select_recliner_chair">
             <img src="PicZedere\recliner_chair.jpg">
             <h2 class="text_select_chair">Recliner Chair</h2>
         </div>
-        <div class="container_select_chair" id="select_office_chair">
+        <div class="container_select_item" id="select_office_chair">
             <img src="PicZedere\office_chair.jpg">
             <h2 class="text_select_chair">Office Chair</h2>
         </div>
-        <div class="container_select_chair " id="select_motor_chair">
+        <div class="container_select_item " id="select_motor_chair">
             <img src="PicZedere\motor_chair.jpg">
             <h2 class="text_select_chair">Motor Chair</h2>
         </div>
@@ -96,8 +96,8 @@ $callback_upholstery_centurian_leather_mc_result = $callback_upholstery_centuria
 
     <div id="Madal_recliner_chair">
         <span id="close_modal_recliner_chair">x</span>
-        <div class="container_select_recliner_chair">
-            <div class="container_slideshow_recliner_chair">
+        <div class="container_select">
+            <div class="container_slideshow">
                 <?php while($row_model_recliner_chair = $callback_model_recliner_chair_result -> fetch_assoc()): ?>
                 <div class="img_and_slideshow_re_ch">
                     <img src="PicZedere/upload_model_img/<?php echo $row_model_recliner_chair['model_img']; ?>">
@@ -118,7 +118,7 @@ $callback_upholstery_centurian_leather_mc_result = $callback_upholstery_centuria
                                 <button class="btn_show_description_recliner_chair " data-description="<?php echo $row_description_recliner_chair['description_name'] ?>">
                                     <?php echo $row_description_recliner_chair['description_name'] ?>
                                 </button>
-                                <div class="show_img_description_recliner_chair">
+                                <div class="show_img_description">
                                     <img style="width: 300px;" src="<?php echo 'PicZedere/upload_description_img/' . $row_description_recliner_chair['description_img'] ?>" >
                                 </div>
                             </div>
@@ -171,8 +171,8 @@ $callback_upholstery_centurian_leather_mc_result = $callback_upholstery_centuria
     <!-- office chair -->
     <div id="modal_office_chair">
         <span id="close_modal_office_chair">x</span>
-        <div class="container_select_office_chair">
-            <div class="container_slideshow_office_chair">
+        <div class="container_select">
+            <div class="container_slideshow">
                 <?php while($row_model_office_chair = $callback_model_office_chair_result->fetch_assoc()): ?>
                 <div class="img_and_slideshow_oc">
                     <img src="PicZedere/upload_model_img/<?php echo $row_model_office_chair['model_img']; ?>">
@@ -193,7 +193,7 @@ $callback_upholstery_centurian_leather_mc_result = $callback_upholstery_centuria
                                 <button class="btn_show_description_office_chair" data-description="<?php echo $row_description_office_chair['description_name']; ?>">
                                     <?php echo $row_description_office_chair['description_name']; ?>
                                 </button>
-                                <div class="show_img_description_office_chair">
+                                <div class="show_img_description">
                                     <img style="width: 300px;" src="<?php echo 'PicZedere/upload_description_img/' . $row_description_office_chair['description_img']; ?>">
                                 </div>
                             </div>
@@ -244,8 +244,8 @@ $callback_upholstery_centurian_leather_mc_result = $callback_upholstery_centuria
 
     <div id="modal_motor_chair">
         <span id="close_modal_motor_chair">x</span>
-        <div class="container_select_motor_chair">
-            <div class="container_slideshow_motor_chair">
+        <div class="container_select">
+            <div class="container_slideshow">
                 <?php while($row_model_motor_chair = $callback_model_motor_chair_result->fetch_assoc()): ?>
                 <div class="img_and_slideshow_mc">
                     <img src="PicZedere/upload_model_img/<?php echo $row_model_motor_chair['model_img']; ?>">
@@ -266,7 +266,7 @@ $callback_upholstery_centurian_leather_mc_result = $callback_upholstery_centuria
                                 <button class="btn_show_description_motor_chair" data-description="<?php echo $row_description_motor_chair['description_name']; ?>">
                                     <?php echo $row_description_motor_chair['description_name']; ?>
                                 </button>
-                                <div class="show_img_description_motor_chair">
+                                <div class="show_img_description">
                                     <img style="width: 300px;" src="<?php echo 'PicZedere/upload_description_img/' . $row_description_motor_chair['description_img']; ?>">
                                 </div>
                             </div>
