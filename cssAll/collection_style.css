@@ -46,7 +46,10 @@
 
 #Madal_recliner_chair, 
 #modal_office_chair, 
-#modal_motor_chair {
+#modal_motor_chair,
+#modal_recliner_sofa,
+#modal_sofa_fix,
+#modal_motor_sofa {
     display: none;
     position: absolute;
     top: 0;
@@ -58,7 +61,10 @@
 
 #close_modal_recliner_chair, 
 #close_modal_office_chair, 
-#close_modal_motor_chair {
+#close_modal_motor_chair,
+#close_modal_recliner_sofa,
+#close_modal_sofa_fix,
+#close_modal_motor_sofa {
     position: absolute;
     top: 2rem;
     right: 3rem;
@@ -69,7 +75,7 @@
     border: 1px solid white;
 }
 
-.container_select  {
+.container_select {
     display: grid;
     grid-template-columns: 1fr 1fr;
     margin: 5rem;
@@ -79,20 +85,29 @@
     height: 80vh;
 }
 
-.container_slideshow{
+.container_slideshow {
     position: relative;
 }
 
 .img_and_slideshow_re_ch, 
 .img_and_slideshow_oc, 
-.img_and_slideshow_mc {
+.img_and_slideshow_mc,
+.img_and_slideshow_rs, 
+.img_and_slideshow_sf, 
+.img_and_slideshow_ms {
     position: absolute;
     top: -5rem;
     transition: transform 0.5s ease;
-    img {
-        width: 100%;
-        padding: 5rem;
-    }
+}
+
+.img_and_slideshow_re_ch img, 
+.img_and_slideshow_oc img, 
+.img_and_slideshow_mc img,
+.img_and_slideshow_rs img, 
+.img_and_slideshow_sf img, 
+.img_and_slideshow_ms img {
+    width: 100%;
+    padding: 5rem;
 }
 
 .name_model {
@@ -144,7 +159,10 @@
 
 .btn_show_description_recliner_chair, 
 .btn_show_description_office_chair, 
-.btn_show_description_motor_chair {
+.btn_show_description_motor_chair,
+.btn_show_description_recliner_sofa, 
+.btn_show_description_sofa_fix, 
+.btn_show_description_motor_sofa {
     border: 3px solid gray;
     padding: 5px 10px;
     border-radius: 10px;
@@ -157,7 +175,10 @@
 
 .btn_show_upholstery_rc, 
 .btn_show_upholstery_oc, 
-.btn_show_upholstery_mc {
+.btn_show_upholstery_mc,
+.btn_show_upholstery_rs,
+.btn_show_upholstery_sf,
+.btn_show_upholstery_ms {
     width: 80px;
     height: 80px;
     border-radius: 50%;
@@ -169,6 +190,10 @@
     flex-wrap: wrap;
     column-gap: 3rem;
     row-gap: 1rem;
+}
+
+.detail_product {
+    font-size: 18px;
 }
 
 .price {

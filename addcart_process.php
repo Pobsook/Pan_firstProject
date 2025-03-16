@@ -11,7 +11,7 @@ if(isset($_POST['price_submit'])){
         header("Location: $redirect_url");
         exit();
     }elseif (isset($_SESSION['email_account']) && isset($_SESSION['id_account'])) {
-        $valid_type = ['recliner_chair', 'office_chair', 'motor_chair', 'recliner_sofa', 'sofa_fix', 'sofa_motor'];
+        $valid_type = ['recliner_chair', 'office_chair', 'motor_chair', 'recliner_sofa', 'sofa_fix', 'motor_sofa'];
         $type_add = $_POST['price_submit'];
 
         if(in_array($type_add, $valid_type)){

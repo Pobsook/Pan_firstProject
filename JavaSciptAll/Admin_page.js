@@ -1,5 +1,4 @@
-document.addEventListener("DOMContentLoaded", function() {
-        
+   
     let input_select = document.getElementsByClassName("input_product");
     let product_section = document.getElementsByClassName("product_section");
 
@@ -207,5 +206,3 @@ document.addEventListener("DOMContentLoaded", function() {
             alert("เกิดข้อผิดพลาดในการลบข้อมูล");
         }
     }
-
-})
