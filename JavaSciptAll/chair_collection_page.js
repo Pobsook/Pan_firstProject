@@ -186,38 +186,37 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }
 
-
     let slideIndexRC = 1;
-    let slideIndexOC = 1;
 
     window.plusSlidesRC = function(n) {
-        slideIndexRC += n;
+        let slidesRC = document.getElementsByClassName('img_and_slideshow_re_ch');
+        slideIndexRC = parseInt(slideIndexRC, 10);
+        slideIndexRC += parseInt(n, 10);
+    
+        if (slideIndexRC > slidesRC.length) {
+            slideIndexRC = 1;
+        } else if (slideIndexRC < 1) {
+            slideIndexRC = slidesRC.length;
+        }
         showSlideRC(slideIndexRC);
-    }
-
-    window.plusSlidesOC = function(n) {
-        slideIndexOC += n;
-        showSlideOC(slideIndexOC);
-    }
-
+    };
+    
     function showSlideRC(n) {
         let slidesRC = document.getElementsByClassName('img_and_slideshow_re_ch');
-        console.log(slidesRC.length);
-        if (n > slidesRC.length) slideIndexRC = 1;
-        if (n < 1) slideIndexRC = slidesRC.length;
-
+        n = parseInt(n, 10);
         for (let i = 0; i < slidesRC.length; i++) {
             slidesRC[i].style.display = 'none';
         }
-        slidesRC[slideIndexRC - 1].style.display = 'block';
-
-        let modelName = slidesRC[slideIndexRC - 1].querySelector('.name_model').getAttribute('data-model');
+        let currentSlide = slidesRC[n - 1];
+        currentSlide.style.display = 'block';
+        let modelName = currentSlide.querySelector('.name_model')?.getAttribute('data-model');
+    
         $.ajax({
             url: 'select_product_process.php',
             type: 'post',
             data: {
                 select_model_rc: modelName,
-                slideIndexRC: slideIndexRC,
+                slideIndexRC: n,
             },
             success: function() {
                 ajax_mix();
@@ -225,60 +224,86 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }
 
+    let slideIndexOC = 1;
+
+    window.plusSlidesOC = function(n) {
+        let slidesOC = document.getElementsByClassName('img_and_slideshow_oc');
+        slideIndexOC = parseInt(slideIndexOC, 10);
+        slideIndexOC += parseInt(n, 10);
+    
+        if (slideIndexOC > slidesOC.length) {
+            slideIndexOC = 1;
+        } else if (slideIndexOC < 1) {
+            slideIndexOC = slidesOC.length;
+        }
+        showSlideOC(slideIndexOC);
+    };
+    
     function showSlideOC(n) {
         let slidesOC = document.getElementsByClassName('img_and_slideshow_oc');
-        if (n > slidesOC.length) slideIndexOC = 1;
-        if (n < 1) slideIndexOC = slidesOC.length;
-
+        n = parseInt(n, 10);
+        
         for (let i = 0; i < slidesOC.length; i++) {
             slidesOC[i].style.display = 'none';
         }
-        slidesOC[slideIndexOC - 1].style.display = 'block';
-
-        let modelName = slidesOC[slideIndexOC - 1].querySelector('.name_model').getAttribute('data-model');
+    
+        let currentSlide = slidesOC[n - 1];
+        currentSlide.style.display = 'block';
+        let modelName = currentSlide.querySelector('.name_model')?.getAttribute('data-model');
+    
         $.ajax({
             url: 'select_product_process.php',
             type: 'post',
             data: {
                 select_model_oc: modelName,
-                slideIndexOC: slideIndexOC,
+                slideIndexOC: n,
             },
             success: function() {
                 ajax_mix();
             }
         });
     }
-
+    
     let slideIndexMC = 1;
-
-    window.plusSlidesMC = function(n)  {
-        slideIndexMC += n;
+    
+    window.plusSlidesMC = function(n) {
+        let slidesMC = document.getElementsByClassName('img_and_slideshow_mc');
+        slideIndexMC = parseInt(slideIndexMC, 10);
+        slideIndexMC += parseInt(n, 10);
+    
+        if (slideIndexMC > slidesMC.length) {
+            slideIndexMC = 1;
+        } else if (slideIndexMC < 1) {
+            slideIndexMC = slidesMC.length;
+        }
         showSlideMC(slideIndexMC);
-    }
-
+    };
+    
     function showSlideMC(n) {
         let slidesMC = document.getElementsByClassName('img_and_slideshow_mc');
-        if (n > slidesMC.length) slideIndexMC = 1;
-        if (n < 1) slideIndexMC = slidesMC.length;
+        n = parseInt(n, 10);
         
         for (let i = 0; i < slidesMC.length; i++) {
             slidesMC[i].style.display = 'none';
         }
-        slidesMC[slideIndexMC - 1].style.display = 'block';
-
-        let modelName = slidesMC[slideIndexMC - 1].querySelector('.name_model').getAttribute('data-model');
+    
+        let currentSlide = slidesMC[n - 1];
+        currentSlide.style.display = 'block';
+        let modelName = currentSlide.querySelector('.name_model')?.getAttribute('data-model');
+    
         $.ajax({
             url: 'select_product_process.php',
             type: 'post',
             data: {
                 select_model_mc: modelName,
-                slideIndexMC: slideIndexMC,
+                slideIndexMC: n,
             },
             success: function() {
                 ajax_mix();
             }
         });
     }
+    
 
     $(document).ready(function () {
         $.ajax({

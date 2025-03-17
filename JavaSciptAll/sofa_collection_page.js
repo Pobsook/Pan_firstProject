@@ -193,37 +193,62 @@ document.addEventListener("DOMContentLoaded", function() {
     let slideIndexMS = 1;
     
     window.plusSlidesRS = function(n) {
-        slideIndexRS += n;
+        let slidesRS = document.getElementsByClassName('img_and_slideshow_rs');
+        slideIndexRS = parseInt(slideIndexRS, 10);
+        slideIndexRS += parseInt(n, 10);
+    
+        if (slideIndexRS > slidesRS.length) {
+            slideIndexRS = 1;
+        } else if (slideIndexRS < 1) {
+            slideIndexRS = slidesRS.length;
+        }
         showSlideRS(slideIndexRS);
-    }
+    };
     
     window.plusSlidesSF = function(n) {
-        slideIndexSF += n;
+        let slidesSF = document.getElementsByClassName('img_and_slideshow_sf');
+        slideIndexSF = parseInt(slideIndexSF, 10);
+        slideIndexSF += parseInt(n, 10);
+    
+        if (slideIndexSF > slidesSF.length) {
+            slideIndexSF = 1;
+        } else if (slideIndexSF < 1) {
+            slideIndexSF = slidesSF.length;
+        }
         showSlideSF(slideIndexSF);
-    }
+    };
     
     window.plusSlidesMS = function(n) {
-        slideIndexMS += n;
+        let slidesMS = document.getElementsByClassName('img_and_slideshow_ms');
+        slideIndexMS = parseInt(slideIndexMS, 10);
+        slideIndexMS += parseInt(n, 10);
+    
+        if (slideIndexMS > slidesMS.length) {
+            slideIndexMS = 1;
+        } else if (slideIndexMS < 1) {
+            slideIndexMS = slidesMS.length;
+        }
         showSlideMS(slideIndexMS);
-    }
+    };
     
     function showSlideRS(n) {
         let slidesRS = document.getElementsByClassName('img_and_slideshow_rs');
-        if (n > slidesRS.length) slideIndexRS = 1;
-        if (n < 1) slideIndexRS = slidesRS.length;
-    
+        n = parseInt(n, 10);
+        
         for (let i = 0; i < slidesRS.length; i++) {
             slidesRS[i].style.display = 'none';
         }
-        slidesRS[slideIndexRS - 1].style.display = 'block';
     
-        let modelName = slidesRS[slideIndexRS - 1].querySelector('.name_model').getAttribute('data-model');
+        let currentSlide = slidesRS[n - 1];
+        currentSlide.style.display = 'block';
+        let modelName = currentSlide.querySelector('.name_model')?.getAttribute('data-model');
+    
         $.ajax({
             url: 'select_product_process.php',
             type: 'post',
             data: {
                 select_model_rs: modelName,
-                slideIndexRS: slideIndexRS,
+                slideIndexRS: n,
             },
             success: function() {
                 ajax_mix();
@@ -233,21 +258,22 @@ document.addEventListener("DOMContentLoaded", function() {
     
     function showSlideSF(n) {
         let slidesSF = document.getElementsByClassName('img_and_slideshow_sf');
-        if (n > slidesSF.length) slideIndexSF = 1;
-        if (n < 1) slideIndexSF = slidesSF.length;
-    
+        n = parseInt(n, 10);
+        
         for (let i = 0; i < slidesSF.length; i++) {
             slidesSF[i].style.display = 'none';
         }
-        slidesSF[slideIndexSF - 1].style.display = 'block';
     
-        let modelName = slidesSF[slideIndexSF - 1].querySelector('.name_model').getAttribute('data-model');
+        let currentSlide = slidesSF[n - 1];
+        currentSlide.style.display = 'block';
+        let modelName = currentSlide.querySelector('.name_model')?.getAttribute('data-model');
+    
         $.ajax({
             url: 'select_product_process.php',
             type: 'post',
             data: {
                 select_model_sf: modelName,
-                slideIndexSF: slideIndexSF,
+                slideIndexSF: n,
             },
             success: function() {
                 ajax_mix();
@@ -257,28 +283,29 @@ document.addEventListener("DOMContentLoaded", function() {
     
     function showSlideMS(n) {
         let slidesMS = document.getElementsByClassName('img_and_slideshow_ms');
-        if (n > slidesMS.length) slideIndexMS = 1;
-        if (n < 1) slideIndexMS = slidesMS.length;
+        n = parseInt(n, 10);
         
         for (let i = 0; i < slidesMS.length; i++) {
             slidesMS[i].style.display = 'none';
         }
-        slidesMS[slideIndexMS - 1].style.display = 'block';
     
-        let modelName = slidesMS[slideIndexMS - 1].querySelector('.name_model').getAttribute('data-model');
+        let currentSlide = slidesMS[n - 1];
+        currentSlide.style.display = 'block';
+        let modelName = currentSlide.querySelector('.name_model')?.getAttribute('data-model');
+    
         $.ajax({
             url: 'select_product_process.php',
             type: 'post',
             data: {
                 select_model_ms: modelName,
-                slideIndexMS: slideIndexMS,
+                slideIndexMS: n,
             },
             success: function() {
                 ajax_mix();
             }
         });
     }
-    
+        
 
     $(document).ready(function () {
         $.ajax({
