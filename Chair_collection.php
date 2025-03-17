@@ -120,6 +120,7 @@ $callback_upholstery_centurian_leather_mc_result = $callback_upholstery_centuria
                                 </button>
                                 <div class="show_img_description">
                                     <img style="width: 300px;" src="<?php echo 'PicZedere/upload_description_img/' . $row_description_recliner_chair['description_img'] ?>" >
+                                    <p><?php echo $row_description_recliner_chair['description_detail'] ?></p>
                                 </div>
                             </div>
                         <?php endwhile ?>
@@ -195,6 +196,7 @@ $callback_upholstery_centurian_leather_mc_result = $callback_upholstery_centuria
                                 </button>
                                 <div class="show_img_description">
                                     <img style="width: 300px;" src="<?php echo 'PicZedere/upload_description_img/' . $row_description_office_chair['description_img']; ?>">
+                                    <p><?php echo $row_description_office_chair['description_detail'] ?></p>
                                 </div>
                             </div>
                         <?php endwhile; ?>
@@ -268,6 +270,7 @@ $callback_upholstery_centurian_leather_mc_result = $callback_upholstery_centuria
                                 </button>
                                 <div class="show_img_description">
                                     <img style="width: 300px;" src="<?php echo 'PicZedere/upload_description_img/' . $row_description_motor_chair['description_img']; ?>">
+                                    <p><?php echo $row_description_motor_chair['description_detail'] ?></p>
                                 </div>
                             </div>
                         <?php endwhile; ?>

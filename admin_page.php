@@ -94,6 +94,16 @@
                 <input type="file" name="description_img" id="description_img" class="form_control" accept="image/png, image/jpg, image/jpeg">
             </div>
             <div class="input_group">
+                <label for="description_type" class="form_label">Description type</label>
+                <input type="checkbox" name="product_check_box[]" id="recliner_chair_type" class="product_check_box" value="recliner_chair">Recliner Chair
+                <input type="checkbox" name="product_check_box[]" id="office_chair_type" class="product_check_box" value="office_chair">Office Chair
+                <input type="checkbox" name="product_check_box[]" id="mortor_chair_type" class="product_check_box" value="motor_chair">Mortor Chair<br>
+                <input type="checkbox" name="product_check_box[]" id="sofa_fix_type" class="product_check_box" value="sofa_fix">Sofa Fix
+                <input type="checkbox" name="product_check_box[]" id="recliner_sofa_type" class="product_check_box" value="recliner_sofa">Recliner Sofa
+                <input type="checkbox" name="product_check_box[]" id="motor_sofa_type" class="product_check_box" value="motor_sofa">Motor Sofa<br>
+                <input type="checkbox" name="product_check_box[]" id="smart_bed_type" class="product_check_box" value="smart_bed">Smart Bed
+            </div>
+            <div class="input_group">
                 <label for="price" class="form_label">Price</label>
                 <input type="text" name="price" id="price" class="form_control" value="" placeholder="Enter Price">
             </div>

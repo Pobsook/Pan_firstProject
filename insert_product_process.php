@@ -60,6 +60,7 @@
         }elseif(!empty($_POST['description_name']) && !empty($_POST['price'])){
             $description_name = $_POST['description_name'];
             $description_detail = $_POST['description_detail'];
+            $description_type = $_POST['product_check_box'];
             $price = $_POST['price'];
             $description_img_name = $_FILES['description_img']['name'];
             $description_img_tmp = $_FILES['description_img']['tmp_name'];
@@ -74,17 +75,19 @@
                 header('location: Admin_page.php');
                 exit();
             }else{
-                $insert_description = $connect -> prepare("INSERT INTO description(description_name, description_detail, description_img, price) VALUES(?, ?, ?, ?)");
-                $insert_description -> bind_param('sssi', $description_name, $description_detail, $description_img_name, $price);
-                move_uploaded_file($description_img_tmp, $img_description_location);
-                if($insert_description -> execute()){
-                    $_SESSION['result'] = 'ข้อมูลถูกเพิ่มสำเร็จ';
-                    header('location: Admin_page.php');
-                    exit();
-                }else{
-                    $_SESSION['result'] = 'เกิดข้อผิดพลาดในการเพิ่มข้อมูล';
-                    header('location: Admin_page.php');
-                    exit();
+                foreach ($description_type as $es_description) {
+                    $insert_description = $connect -> prepare("INSERT INTO description(description_name, description_detail, description_img, description_type, price) VALUES(?, ?, ?, ?, ?)");
+                    $insert_description -> bind_param('ssssi', $description_name, $description_detail, $description_img_name, $es_description, $price);
+                    move_uploaded_file($description_img_tmp, $img_description_location);
+                    if($insert_description -> execute()){
+                        $_SESSION['result'] = 'ข้อมูลถูกเพิ่มสำเร็จ';
+                        header('location: Admin_page.php');
+                        exit();
+                    }else{
+                        $_SESSION['result'] = 'เกิดข้อผิดพลาดในการเพิ่มข้อมูล';
+                        header('location: Admin_page.php');
+                        exit();
+                    }
                 }
             }
         }elseif(!empty($_POST['color_name']) && !empty($_FILES['color_img']) && isset($_FILES['color_img'])){

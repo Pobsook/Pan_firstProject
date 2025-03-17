@@ -119,7 +119,7 @@ $callback_upholstery_centurian_leather_ms_result = $callback_upholstery_centuria
                                     <?php echo $row_description_recliner_sofa['description_name'] ?>
                                 </button>
                                 <div class="show_img_description">
-                                    <img style="width: 300px;" src="<?php echo 'PicZedere/upload_description_img/' . $row_description_recliner_sofa['description_img'] ?>" >
+                                    <p><?php echo $row_description_recliner_sofa['description_detail'] ?></p>
                                 </div>
                             </div>
                         <?php endwhile ?>
@@ -194,7 +194,7 @@ $callback_upholstery_centurian_leather_ms_result = $callback_upholstery_centuria
                                     <?php echo $row_description_sofa_fix['description_name'] ?>
                                 </button>
                                 <div class="show_img_description">
-                                    <img style="width: 300px;" src="<?php echo 'PicZedere/upload_description_img/' . $row_description_sofa_fix['description_img'] ?>" >
+                                <p><?php echo $row_description_sofa_fix['description_detail'] ?></p>
                                 </div>
                             </div>
                         <?php endwhile ?>
@@ -263,11 +263,11 @@ $callback_upholstery_centurian_leather_ms_result = $callback_upholstery_centuria
                     <div class="Description_ease">
                         <?php while($row_description_motor_sofa = $callback_description_motor_sofa_result -> fetch_assoc()): ?>
                             <div class="description_item">
-                                <button class="btn_show_description_sofa_motor" data-description="<?php echo $row_description_motor_sofa['description_name'] ?>">
+                                <button class="btn_show_description_motor_sofa" data-description="<?php echo $row_description_motor_sofa['description_name'] ?>">
                                     <?php echo $row_description_motor_sofa['description_name'] ?>
                                 </button>
                                 <div class="show_img_description">
-                                    <img style="width: 300px;" src="<?php echo 'PicZedere/upload_description_img/' . $row_description_motor_sofa['description_img'] ?>" >
+                                    <p><?php echo $row_description_motor_sofa['description_detail'] ?></p>
                                 </div>
                             </div>
                         <?php endwhile ?>
