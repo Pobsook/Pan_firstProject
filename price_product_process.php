@@ -12,20 +12,11 @@ if (isset($_POST['get_price'])) {
     $upholstery_oc = $_POST['upholstery_oc'];
     $description_mc = $_POST['description_mc'];
     $upholstery_mc = $_POST['upholstery_mc'];
-    $description_rs = $_POST['description_rs'] ?? '';
-    $upholstery_rs = $_POST['upholstery_rs'] ?? '';
-    $description_sf = $_POST['description_sf'] ?? '';
-    $upholstery_sf = $_POST['upholstery_sf'] ?? '';
-    $description_ms = $_POST['description_ms'] ?? '';
-    $upholstery_ms = $_POST['upholstery_ms'] ?? '';
 
     // ตั้งค่าราคาเริ่มต้นป้องกัน JSON encode error
     $price_rc = 0;
     $price_oc = 0;
     $price_mc = 0;
-    $price_rs = 0;
-    $price_sf = 0;
-    $price_ms = 0;
 
     // ดึงราคาของ recliner chair
     $callback_price_rc = $connect->prepare("SELECT price FROM description WHERE description_name = ?");

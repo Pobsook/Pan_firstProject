@@ -4,7 +4,7 @@
     require("connect.php");
 
     if(!isset($_SESSION['id_account'])){
-        $_SESSION['result'] = 'กรุณาล็อกอินก่อนครับ';
+        $_SESSION['result'] = 'กรุณาล็อกอินก่อน';
         header('location: Home_page.php');
         exit();
     }
@@ -45,134 +45,36 @@
     <?php if ($callback_cart_result->num_rows == 0) { ?>
         <h3 style="text-align: center; color: #777;">ไม่มีสินค้าใน Cart</h3>
     <?php } else { ?>
-        <table class="cart_table">
-            <tr>
-                <th>Model</th>
-                <th>Description</th>
-                <th>Upholstery color</th>
-                <th>Quantity</th>
-                <th>Price</th>
-                <th>Action</th>
-            </tr>
-          <?php while ($rows = $callback_cart_result->fetch_assoc()) { ?>
-            <tr>
-                <td><?php echo $rows['model']; ?></td>
-                <td><?php echo $rows['description']; ?></td>
-                <td><?php echo $rows['upholstery']; ?></td>
-                <td><?php echo $rows['quantity']; ?></td>
-                <td><?php echo number_format(round($rows['price'])); ?> ฿</td>                        
-                <td><button class="remove_rows" data-id="<?php echo $rows['id_product']; ?>">Remove</button></td>
-            </tr>
-          <?php } ?>
-        </table>
-        <div class="buy_item">
-            <div class="total_price_container">
-                <h3 class="total_price">Total Price <?php echo number_format(round($total_price)); ?> ฿</h3>
+            <table class="cart_table">
+                <tr>
+                    <th></th>
+                    <th>Model</th>
+                    <th>Description</th>
+                    <th>Upholstery color</th>
+                    <th>Quantity</th>
+                    <th>Price</th>
+                    <th>Action</th>
+                </tr>
+            <?php while ($rows = $callback_cart_result->fetch_assoc()) { ?>
+                <tr>
+                    <td><input class="check_select_item" type="checkbox" value="<?php echo $rows['id_product'] ?>" name="select_products[]"></td>
+                    <td><?php echo $rows['model']; ?></td>
+                    <td><?php echo $rows['description']; ?></td>
+                    <td><?php echo $rows['upholstery']; ?></td>
+                    <td><?php echo $rows['quantity']; ?></td>
+                    <td><input type="hidden" value="<?php $rows['price'] ?>"><?php echo number_format(round($rows['price'])); ?> ฿</td>                        
+                    <td><button class="remove_rows" data-id="<?php echo $rows['id_product']; ?>">Remove</button></td>
+                </tr>
+            <?php } ?>
+            </table>
+            <div class="buy_item">
+                <div class="total_price_container">
+                    <h3 class="total_price"></h3>
+                </div>
+                <button class="buy_button">Buy Now</button>
             </div>
-            <button class="buy_button">Buy Now</button>
-        </div>
-
     <?php } ?>
 </div>
-
-<style>
-    .buy_item {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin-top: 20px;
-    }
-
-    .total_price_container {
-        background-color: #f4f4f4;
-        padding: 20px;
-        border-radius: 10px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-    }
-
-    .total_price {
-        font-size: 32px;
-        font-weight: bold;
-        color: #333;
-        margin: 0;
-    }
-
-    .buy_button {
-        background-color: #007BFF;
-        color: white;
-        border: none;
-        padding: 12px 25px;
-        margin-right: 2rem;
-        font-size: 16px;
-        cursor: pointer;
-        border-radius: 5px;
-        transition: background-color 0.3s;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    }
-
-    .buy_button:hover {
-        background-color: #0056b3;
-    }
-
-    .buy_button:active {
-        background-color: #004085;
-    }
-
-    .container_cart {
-        background-color: aliceblue;
-        padding: 20px;
-        border-radius: 8px;
-        max-width: 900px;
-        margin: 0 auto;
-    }
-
-    h1 {
-        text-align: center;
-        color: #333;
-        margin-bottom: 20px;
-    }
-
-    h3 {
-        text-align: center;
-        color: #777;
-    }
-    .cart_table {
-        width: 100%;
-        border-collapse: collapse;
-        margin-top: 20px;
-    }
-    .cart_table th, .cart_table td {
-        padding: 12px 15px;
-        text-align: left;
-        border-bottom: 1px solid #ddd;
-    }
-    .cart_table th {
-        background-color: #f4f4f4;
-        color: #333;
-    }
-    .cart_table tr:hover {
-        background-color: #f1f1f1;
-    }
-
-    .remove_rows {
-        background-color: #ff4d4d;
-        color: white;
-        border: none;
-        padding: 8px 15px;
-        font-size: 14px;
-        cursor: pointer;
-        border-radius: 4px;
-    }
-
-    .remove_rows:hover {
-        background-color: #e60000;
-    }
-
-</style>
 
     <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
     <script src="JavasciptAll/Contact_list.js"></script>

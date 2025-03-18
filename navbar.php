@@ -78,9 +78,7 @@
                     <a href="javascript:void(0)" class="dropbtn" id="open_collection">Collection</a>
                 </li>
                 <li>
-                    <a href="<?php if(isset($_SESSION['id_account'])){
-                        echo 'cart.php';
-                    }else{ echo '#';} ?>">Cart <span class="count_cart"></span></a>
+                    <a href="<?php echo 'cart.php'?>">Cart <span class="count_cart"></span></a>
                 </li>
                 <li class="dropdown">
                     <?php if (!isset($_SESSION['username']) || !isset($_SESSION['email_account']) || !isset($_SESSION['id_account'])) { ?>

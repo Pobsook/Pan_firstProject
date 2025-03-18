@@ -112,17 +112,14 @@ document.addEventListener("DOMContentLoaded", function() {
                 let data = JSON.parse(response);
                 let quantity = parseInt(data.quantity_rc) || 1;
 
-                console.log("จำนวนเก่า RC:", quantity);
                 quantity += n;
                 if (quantity < 1) quantity = 1;
-                console.log("จำนวนใหม่ RC:", quantity);
 
                 $.ajax({
                     url: 'select_product_process.php',
                     type: 'post',
                     data: { quantityIndex_re_ch: quantity },
                     success: function(saveResponse) {
-                        console.log("ผลลัพธ์จาก PHP:", saveResponse);
                         if (saveResponse == 'เก็บข้อมูลสำเร็จ') {
                             ajax_mix();
                         }
@@ -149,7 +146,6 @@ document.addEventListener("DOMContentLoaded", function() {
                     type: 'post',
                     data: { quantityIndex_oc: quantity },
                     success: function(saveResponse) {
-                        console.log("ผลลัพธ์จาก PHP:", saveResponse);
                         if (saveResponse == 'เก็บข้อมูลสำเร็จ') {
                             ajax_mix();
                         }
@@ -176,7 +172,6 @@ document.addEventListener("DOMContentLoaded", function() {
                     type: 'post',
                     data: { quantityIndex_mc: quantity },
                     success: function(saveResponse) {
-                        console.log("ผลลัพธ์จาก PHP:", saveResponse);
                         if (saveResponse == 'เก็บข้อมูลสำเร็จ') {
                             ajax_mix();
                         }

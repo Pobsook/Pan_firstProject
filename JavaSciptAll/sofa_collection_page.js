@@ -187,7 +187,6 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }
     
-
     let slideIndexRS = 1;
     let slideIndexSF = 1;
     let slideIndexMS = 1;
@@ -305,7 +304,6 @@ document.addEventListener("DOMContentLoaded", function() {
             }
         });
     }
-        
 
     $(document).ready(function () {
         $.ajax({
@@ -354,8 +352,6 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     });
     
-
-
     $(document).ready(function() {
         $('.btn_show_description_recliner_sofa').on('click', function() {
             let select_description_recliner_sofa = $(this).data("description");
@@ -406,6 +402,7 @@ document.addEventListener("DOMContentLoaded", function() {
                     if(response == 'เก็บข้อมูลสำเร็จ') {
                         $('.btn_show_description_motor_sofa').removeClass('select_this_item');
                         btn.addClass('select_this_item');
+                        ajax_mix();
                     } else {
                         alert('เก็บข้อมูลไม่สำเร็จ');
                     }
@@ -470,5 +467,4 @@ document.addEventListener("DOMContentLoaded", function() {
             });
         });
     });
-    
 })
