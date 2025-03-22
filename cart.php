@@ -38,6 +38,29 @@
     <?php require("alert.php"); ?>
     <?php require("navbar.php"); ?>
     <?php require("contact.php"); ?>
+
+    <div id="modal_Shipping_information_background">
+        <form action="add_address_process.php" method="post">
+            <div id="modal_location_delivery">
+                <span class="close_modal_shipping">x</span>
+                <input type="text" placeholder="name or company" name="name_or_company">
+                <input type="text" placeholder="id-card or passport" name="id_card_or_passport">
+                <input type="text" placeholder="location delivery" name="location_delivery"> 
+                <input type="text" placeholder="tel" name="telephone">
+                <span class="change_modal_between_delivery_and_tax" style="position: absolute; top: 50%; right: 2rem; cursor: pointer">tax invoice<img src="PicZedere/left-right-arrows_10624289.png" style="width: 50px; height: 50px;"></span>
+                <button type="submit">Add Shipping Location</button>
+            </div>
+        </form>
+        <form action="add_address_process.php" method="post">
+            <div id="modal_tax_invoice">
+                <input type="text" placeholder="name or company" name="name_or_company_tax">
+                <input type="text" placeholder="id-card or passport" name="id_card_or_passport_tax">
+                <input type="text" placeholder="address tax-Invoice" name="address_tax_Invoice">
+                <span class="change_modal_between_delivery_and_tax" style="position: absolute; top: 50%; left: 2rem; cursor: pointer"><img src="PicZedere/left-right-arrows_10624289.png" style="width: 50px; height: 50px;">location delivery</span>
+                <button type="submit">Add tax-Invoice</button>
+            </div>
+        </form>
+    </div>
     
     <div class="container_cart" style="background-color: aliceblue; padding: 20px; border-radius: 8px; max-width: 900px; margin: 1rem auto;">
     <h1 style="text-align: center; color: #333;">CART</h1>
@@ -71,10 +94,12 @@
                 <div class="total_price_container">
                     <h3 class="total_price"></h3>
                 </div>
-                <button class="buy_button">Buy Now</button>
+                <div class="action_buttons">
+                    <button id="add_address_button">Shipping information</button>
+                    <button class="buy_button">Buy Now</button>
+                </div>
             </div>
     <?php } ?>
-</div>
 
     <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
     <script src="JavasciptAll/Contact_list.js"></script>

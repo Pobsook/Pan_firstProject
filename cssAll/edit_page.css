@@ -88,6 +88,12 @@
     background-color: #45a049; /* เปลี่ยนสีเมื่อโฮเวอร์ */
 }
 
+#result_table th:first-child, 
+#result_table td:first-child {
+    width: 50px; /* กำหนดขนาดความกว้างให้เล็กลง */
+    text-align: center; /* จัดให้ตัวเลขอยู่ตรงกลาง */
+}
+
 #result_table {
     width: 100%;
     margin-top: 20px;

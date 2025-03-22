@@ -60,13 +60,12 @@
             <button onclick="search()">search</button>
         </div>
 
-        <div class="con_show_edit">
+       <div class="con_show_edit">
             <table id="result_table">
                 <thead>
                     <tr>
                         <th>#</th>
                         <th>ชื่อ</th>
-                        <th>ประเภท</th>
                         <th>รายละเอียด</th>
                         <th>รูปภาพ</th>
                         <th>การจัดการ</th>
@@ -77,7 +76,7 @@
                 </tbody>
             </table>
             <span class="text_error"></span>
-        </div>
+        </div> 
     </div>
 
 

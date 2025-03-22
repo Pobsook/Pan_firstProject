@@ -38,7 +38,6 @@
                                             <input class="type_edit_${item.id_model}" type="hidden" value="model">
                                         </td>
                                         <td><input type="text" class="name_${item.id_model}" value="${item.model_name}"></td>
-                                        <td><input type="text" class="type_${item.id_model}" value="${item.product_type}"></td>
                                         <td><input type="text" class="detail_${item.id_model}" value="${item.model_detail}"></td>
                                         <td>
                                             <div>
@@ -63,7 +62,6 @@
                                             <input class="type_edit_${item.id_description}" type="hidden" value="description">
                                         </td>
                                         <td><input type="text" class="name_${item.id_description}" value="${item.description_name}"></td>
-                                        <td><input type="text" class="type_${item.id_description}" value="${item.description_type}"></td>
                                         <td><input type="text" class="detail_${item.id_description}" value="${item.description_detail}"></td>
                                         <td>
                                             <div>
@@ -88,7 +86,6 @@
                                             <input class="type_edit" type="hidden" value="upholstery">
                                         </td>
                                         <td><input type="text" class="name_${item.id_upholstery}" value="${item.upholstery_color_name}"></td>
-                                        <td><input type="text" class="type_${item.id_upholstery}" value="${item.upholstery_color_type}"></td>
                                         <td><input type="text" class="detail_${item.id_upholstery}" value="${item.upholstery_color_detail}"></td>
                                         <td>
                                             <div>
