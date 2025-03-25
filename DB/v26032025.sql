@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 09, 2025 at 04:45 PM
+-- Generation Time: Mar 25, 2025 at 08:36 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -48,18 +48,6 @@ INSERT INTO `account` (`id_account`, `username_account`, `email_account`, `role_
 (6, 'pupech', 'pupech@gmail.com', 'user', '$argon2id$v=19$m=65536,t=4,p=1$YXZoMkpCMmlQVGRtWTV1YQ$4/4YDDjHczOWDy41NpGaYBl7PViiJwn+HVggItoiUak', 0, 0, NULL, ''),
 (7, 'ploychompoo', 'ploychompoo@gmail.com', 'user', '$argon2id$v=19$m=65536,t=4,p=1$YzlDOE9hbVpvYlIxM256Qw$r52LtZng61HJtawWFW2ytvY4Ie1V28mAIgtD+zEtQB8', 0, 0, NULL, ''),
 (8, 'tinridoki', 'tinridoki@gmail.com', 'user', '$argon2id$v=19$m=65536,t=4,p=1$N0Vhbk5CMVFMYUIuMlBOSA$iyzuEnSshjyOXYKzYXJApLA2VERJu1Ohhig9tKpzO7s', 0, 0, NULL, '');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `address`
---
-
-CREATE TABLE `address` (
-  `id_address` int(11) NOT NULL,
-  `id_account` int(11) NOT NULL,
-  `address_ac` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -117,12 +105,20 @@ INSERT INTO `description` (`id_description`, `description_name`, `description_de
 (1, '1.7 SEATER', 'โซฟา Recliner ขนาดที่นั่งละ 73cm 1 ที่นั่ง', '', 'recliner_sofa', 40000.00),
 (2, '2.7 SEATER', 'โซฟา Recliner ขนาดที่นั่งละ 73cm 2 ที่นั่ง', '', 'recliner_sofa', 75000.00),
 (3, '3.7 SEATER', 'โซฟา Recliner ขนาดที่นั่งละ 73cm 3 ที่นั่ง', '', 'recliner_sofa', 105000.00),
-(4, 'O-base', '', 'O-base.png', 'recliner_chair', 35000.00),
-(5, 'R-base', '', 'R-base.png', 'recliner_chair', 27000.00),
-(6, 'P-base', '', 'P-base.png', 'recliner_chair', 32000.00),
-(7, 'X-base', '', 'X-base.png', 'recliner_chair', 31000.00),
-(9, 'office_chair', '', 'Angelo_office_chair.jpg', 'office_chair', 31000.00),
-(10, 'motor_chair', 'motor_chair', 'RXC_ZENVO.png', 'motor_chair', 65000.00);
+(4, 'O base', 'ขาไม้ Walnut จากอเมริกา สวย ดูหรูหรามีระดับ', 'O-base.png', 'recliner_chair', 35000.00),
+(5, 'R base', 'ขาไม้ยาง มีความแข็งแรง เรียบง่าย', 'R-base.png', 'recliner_chair', 27000.00),
+(6, 'P base', 'ขา Black Steel แข็งแรง ดุดัน', 'P-base.png', 'recliner_chair', 32000.00),
+(7, 'X base', 'ขา Aluminum die cast มีความแข็งแรง ไม่ขึ้นสนิม', 'X-base.png', 'recliner_chair', 31000.00),
+(9, 'Office chair', 'ขา Aluminum มีล้อ จาก นำเข้าจาก Tente ฝรั่งเศษ', 'Angelo_office_chair.jpg', 'office_chair', 31000.00),
+(10, 'Motor chair', 'Ogin german motor แข็งแรงทนทาน', 'RXC_ZENVO.png', 'motor_chair', 65000.00),
+(11, '2.7S +1C', 'โซฟา Recliner ขนาดที่นั่งละ 73cm 2 ที่นั่ง + 1 Chaise slide', '', 'recliner_sofa', 125000.00),
+(12, '1 Seat', 'ขนาด 1 ที่นั่ง', '', 'sofa_fix', 50000.00),
+(13, '2 Seat', 'ขนาด 2 ที่นั่ง', '', 'sofa_fix', 90000.00),
+(14, '3 Seat', 'ขนาด 3 ที่นั่ง', '', 'sofa_fix', 120000.00),
+(15, '2S + 1C', 'ขนาด 2 seat + 1 chaise', '', 'sofa_fix', 135000.00),
+(16, 'Motor2 Seat', 'โซฟาไฟฟ้า ขนาด 2 seat', '', 'motor_sofa', 120000.00),
+(17, 'Motor3 Seat', 'โซฟาไฟฟ้า ขนาด 3 seat', '', 'motor_sofa', 165000.00),
+(18, 'Motor 2S +1C', 'โซฟาไฟฟ้า ขนาด 2 seat + 1 chaise', '', 'motor_sofa', 180000.00);
 
 -- --------------------------------------------------------
 
@@ -163,23 +159,27 @@ INSERT INTO `model` (`id_model`, `model_name`, `product_type`, `model_img`) VALU
 (32, 'Porto', 'recliner_chair', 'Porto_recliner_chair.png'),
 (33, 'Audi', 'recliner_chair', 'Audi_recliner_chair.png'),
 (34, 'Luneno', 'recliner_chair', 'Luneno_recliner_chair.png'),
-(35, 'RXC_ZENVO', 'motor_chair', 'RXC_ZENVO.png'),
-(36, 'RXC_ANGELO', 'motor_chair', 'RXC_ANGELO.png'),
-(37, 'RXC_VERRA', 'motor_chair', 'RXC_VERRA.png'),
-(38, 'RXC_CICIO', 'motor_chair', 'RXC_CICIO.png');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `personal_info`
---
-
-CREATE TABLE `personal_info` (
-  `id_account` int(10) NOT NULL,
-  `name_or_company` varchar(255) NOT NULL,
-  `telephone` varchar(10) NOT NULL,
-  `id_card_or_passport` varchar(13) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+(35, 'RXC ZENVO', 'motor_chair', 'RXC_ZENVO.png'),
+(36, 'RXC ANGELO', 'motor_chair', 'RXC_ANGELO.png'),
+(37, 'RXC VERRA', 'motor_chair', 'RXC_VERRA.png'),
+(38, 'RXC CICIO', 'motor_chair', 'RXC_CICIO.png'),
+(39, 'Davos', 'recliner_sofa', 'Davos.png'),
+(40, 'Luneno', 'recliner_sofa', 'Luneno.png'),
+(41, 'Huayra', 'recliner_sofa', 'Huayra.png'),
+(42, 'Essa', 'recliner_sofa', 'essa.png'),
+(43, 'Porto', 'recliner_sofa', 'Porto.png'),
+(44, 'Munoz', 'sofa_fix', 'Munoz.png'),
+(45, 'Maison', 'sofa_fix', 'Maison.png'),
+(46, 'Ricci', 'sofa_fix', 'Ricci.png'),
+(47, 'Maxilano', 'sofa_fix', 'Maxilano.png'),
+(48, 'Vitroro', 'sofa_fix', 'Vitroro.png'),
+(49, 'Angelo', 'recliner_sofa', 'Angelo.png'),
+(51, 'Messetto', 'motor_sofa', 'Messetto.png'),
+(52, 'Violetta', 'motor_sofa', 'Violetta.png'),
+(53, 'Favino', 'motor_sofa', 'Favino.png'),
+(54, 'Sorocco', 'motor_sofa', 'Sorocco.png'),
+(55, 'Castillo', 'motor_sofa', 'Castillo.png'),
+(56, 'Casapepe', 'motor_sofa', 'Casapepe.png');
 
 -- --------------------------------------------------------
 
@@ -211,14 +211,12 @@ INSERT INTO `product` (`id_product`, `id_account`, `model`, `description`, `colo
 (19, 7, 'Alfredo', 'R-base', NULL, 'blu_de_nord', NULL, 1, 32400.00, 1),
 (20, 6, 'Luneno', 'R-base', NULL, 'blu_de_nord', NULL, 1, 32400.00, 1),
 (39, 6, 'Porto', 'P-base', NULL, 'hermes_tan', NULL, 2, 64000.00, 1),
-(44, 5, 'Atera', 'X-base', NULL, 'jamon_caramel', NULL, 3, 93000.00, 1),
-(47, 5, 'Berlino', 'X-base', NULL, 'luwak_latte', NULL, 2, 62000.00, 1),
-(48, 5, 'Forte', 'P-base', NULL, 'paris_noir', NULL, 2, 76800.00, 1),
-(49, 5, 'Bella', 'O-base', NULL, 'lilac_rose', NULL, 2, 70000.00, 1),
-(52, 5, 'Forte', 'X-base', NULL, 'ferrari_red', NULL, 3, 93000.00, 1),
 (56, 8, 'Alfredo', 'R-base', NULL, 'luwak_latte', NULL, 3, 81000.00, 1),
 (57, 8, 'Alfredo', 'O-base', NULL, 'filico_aqua', NULL, 1, 35000.00, 1),
-(62, 8, 'Reserve', 'office_chair', NULL, 'jamon_caramel', NULL, 2, 62000.00, 1);
+(62, 8, 'Reserve', 'office_chair', NULL, 'jamon_caramel', NULL, 2, 62000.00, 1),
+(65, 5, 'RXC_ANGELO', 'motor_chair', NULL, 'ferrari_red', NULL, 2, 130000.00, 1),
+(68, 5, 'Ricci', '2S + 1C', NULL, 'luwak_latte', NULL, 1, 135000.00, 1),
+(71, 5, 'Forte', 'O base', NULL, 'Blu De Nord', NULL, 3, 126000.00, 1);
 
 -- --------------------------------------------------------
 
@@ -258,17 +256,17 @@ CREATE TABLE `upholstery_color` (
 --
 
 INSERT INTO `upholstery_color` (`id_upholstery`, `upholstery_color_name`, `upholstery_color_type`, `upholstery_color_detail`, `upholstery_color_img`) VALUES
-(1, 'paris_noir', 'centurian_leather', '', '1739190406_paris_noir_centurian_leather.png'),
-(2, 'blu_de_nord', 'centurian_leather', '', 'blu_de_nord_centurian_leather.png'),
-(3, 'diamond_blanc', 'natural_leather', '', 'diamond_blanc_natural_leather.jpg'),
-(4, 'hermes_tan', 'natural_leather', '', 'hermes_tan_natural_leather.jpg'),
-(5, 'filico_aqua', 'natural_leather', '', 'filico_aqua_natural_leather.jpg'),
-(6, 'jamon_caramel', 'natural_leather', '', 'jamon_caramel_natural_leather.jpg'),
-(7, 'moet_green', 'natural_leather', '', 'moet_green_natural_leather.jpg'),
-(8, 'ferrari_red', 'natural_leather', '', 'ferrari_red_natural_leather.jpg'),
-(9, 'luwak_latte', 'natural_leather', '', 'luwak_latte_natural_leather.jpg'),
-(10, 'lilac_rose', 'natural_leather', '', 'lilac_rose_natural_leather.jpg'),
-(11, 'bohemian_blue', 'natural_leather', '', 'bohemian_blue_natural_leather.jpg');
+(1, 'Paris Noir', 'centurian_leather', '', '1739190406_paris_noir_centurian_leather.png'),
+(2, 'Blu De Nord', 'centurian_leather', '', 'blu_de_nord_centurian_leather.png'),
+(3, 'Diamond Blanc', 'natural_leather', '', 'diamond_blanc_natural_leather.jpg'),
+(4, 'Hermes tan', 'natural_leather', '', 'hermes_tan_natural_leather.jpg'),
+(5, 'Filico_Aqua', 'natural_leather', '', 'filico_aqua_natural_leather.jpg'),
+(6, 'Jamon Caramel', 'natural_leather', '', 'jamon_caramel_natural_leather.jpg'),
+(7, 'Moet Green', 'natural_leather', '', 'moet_green_natural_leather.jpg'),
+(8, 'Ferrari Red', 'natural_leather', '', 'ferrari_red_natural_leather.jpg'),
+(9, 'Luwak latte', 'natural_leather', '', 'luwak_latte_natural_leather.jpg'),
+(10, 'Lilac Rose', 'natural_leather', '', 'lilac_rose_natural_leather.jpg'),
+(11, 'Bohemian Blue', 'natural_leather', '', 'bohemian_blue_natural_leather.jpg');
 
 --
 -- Indexes for dumped tables
@@ -279,12 +277,6 @@ INSERT INTO `upholstery_color` (`id_upholstery`, `upholstery_color_name`, `uphol
 --
 ALTER TABLE `account`
   ADD PRIMARY KEY (`id_account`);
-
---
--- Indexes for table `address`
---
-ALTER TABLE `address`
-  ADD PRIMARY KEY (`id_address`);
 
 --
 -- Indexes for table `add_on`
@@ -339,12 +331,6 @@ ALTER TABLE `account`
   MODIFY `id_account` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
--- AUTO_INCREMENT for table `address`
---
-ALTER TABLE `address`
-  MODIFY `id_address` int(11) NOT NULL AUTO_INCREMENT;
-
---
 -- AUTO_INCREMENT for table `add_on`
 --
 ALTER TABLE `add_on`
@@ -360,19 +346,19 @@ ALTER TABLE `color`
 -- AUTO_INCREMENT for table `description`
 --
 ALTER TABLE `description`
-  MODIFY `id_description` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id_description` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `model`
 --
 ALTER TABLE `model`
-  MODIFY `id_model` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
+  MODIFY `id_model` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
 
 --
 -- AUTO_INCREMENT for table `product`
 --
 ALTER TABLE `product`
-  MODIFY `id_product` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=63;
+  MODIFY `id_product` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=72;
 
 --
 -- AUTO_INCREMENT for table `sales_order`

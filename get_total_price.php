@@ -13,6 +13,7 @@ if (isset($_POST['selected_products'])) {
     $query = "SELECT SUM(price) AS total_price FROM product WHERE id_product IN ($product_ids_str)";
     $result = mysqli_query($connect, $query);
     $row = mysqli_fetch_assoc($result);
+    $_SESSION['total_price'] = $row['total_price'];
 
     echo $row['total_price'] ?? 0;  // ถ้าไม่มีราคาให้คืนค่า 0
 }

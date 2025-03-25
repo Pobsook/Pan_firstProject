@@ -43,19 +43,22 @@
         <form action="add_address_process.php" method="post">
             <div id="modal_location_delivery">
                 <span class="close_modal_shipping">x</span>
-                <input type="text" placeholder="name or company" name="name_or_company">
-                <input type="text" placeholder="id-card or passport" name="id_card_or_passport">
-                <input type="text" placeholder="location delivery" name="location_delivery"> 
-                <input type="text" placeholder="tel" name="telephone">
+                <input type="hidden" name="shipping_info" value="shipping_info">
+                <input class="input_blank" type="text" placeholder="name or company" name="name_or_company">
+                <input class="input_blank" type="text" placeholder="id-card or passport" name="id_card_or_passport">
+                <input class="input_blank" type="text" placeholder="location delivery" name="location_delivery"> 
+                <input class="input_blank" type="text" placeholder="tel" name="telephone">
                 <span class="change_modal_between_delivery_and_tax" style="position: absolute; top: 50%; right: 2rem; cursor: pointer">tax invoice<img src="PicZedere/left-right-arrows_10624289.png" style="width: 50px; height: 50px;"></span>
                 <button type="submit">Add Shipping Location</button>
             </div>
         </form>
         <form action="add_address_process.php" method="post">
             <div id="modal_tax_invoice">
-                <input type="text" placeholder="name or company" name="name_or_company_tax">
-                <input type="text" placeholder="id-card or passport" name="id_card_or_passport_tax">
-                <input type="text" placeholder="address tax-Invoice" name="address_tax_Invoice">
+                <span class="close_modal_shipping">x</span>
+                <input type="hidden" name="tax_info" value="tax_info">
+                <input class="input_blank" type="text" placeholder="name or company" name="name_or_company_tax">
+                <input class="input_blank" type="text" placeholder="id-card or passport" name="id_card_or_passport_tax">
+                <input class="input_blank" type="text" placeholder="address tax-Invoice" name="address_tax_Invoice">
                 <span class="change_modal_between_delivery_and_tax" style="position: absolute; top: 50%; left: 2rem; cursor: pointer"><img src="PicZedere/left-right-arrows_10624289.png" style="width: 50px; height: 50px;">location delivery</span>
                 <button type="submit">Add tax-Invoice</button>
             </div>
