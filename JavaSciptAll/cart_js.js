@@ -40,6 +40,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
     var selectedItems = [];
     updateTotalPrice(selectedItems);
+    
+    // อัพเดตราคารวมเมื่อ checkbox มีการเปลี่ยนแปลง
     $('.check_select_item').on('change', function () {
         var productId = $(this).val();
         if ($(this).is(':checked')) {
@@ -47,43 +49,51 @@ document.addEventListener("DOMContentLoaded", function () {
         } else {
             selectedItems = selectedItems.filter(id => id !== productId);
         }
-
-        console.log("Selected Products:", selectedItems);
         updateTotalPrice(selectedItems);
     });
-
+    
+    // ฟังก์ชันอัปเดตราคารวม
     function updateTotalPrice(selectedItems) {
-
         $.ajax({
             url: 'get_total_price.php',
             type: 'POST',
             data: { selected_products: selectedItems },
             success: function (response) {
-                console.log(response)
                 $('.total_price').text('Total Price: ' + new Intl.NumberFormat().format(response) + ' ฿');
+                checkBuyButtonStatus();
             },
             error: function () {
                 console.error('เกิดข้อผิดพลาดในการดึงข้อมูลราคา');
             }
         });
     }
-
-    $.ajax({
-        url: 'buy_process.php',
-        type: 'post',
-        data:{
-            get_session_ship: true
-        },
-        success: function(response_sess){
-            if(response_sess == 'success'){
-                $('.buy_button').css({
-                    "background": "#07a74f",
-                    "cursor": "pointer"
-                })
+    
+    function checkBuyButtonStatus() {
+        $.ajax({
+            url: 'buy_process.php',
+            type: 'post',
+            data: { get_session_ship: true },
+            success: function(response_sess) {
+                if(response_sess === 'success' && selectedItems.length > 0) {
+                    $('.buy_button').css({
+                        "background": "#07a74f",
+                        "cursor": "pointer"
+                    }).prop("disabled", false);
+                } else {
+                    $('.buy_button').css({
+                        "background": "#777",
+                        "cursor": "not-allowed"
+                    }).prop("disabled", true);
+                }
             }
-        }
-    })
-
+        });
+    }
+    
+    $(document).ready(function () {
+        get_session_ship_and_tax();
+        checkBuyButtonStatus();
+    });
+    
     $('.buy_button').on('click', function() {
         if (selectedItems.length === 0) {
             Swal.fire({
@@ -173,4 +183,5 @@ document.addEventListener("DOMContentLoaded", function () {
             });
         }
     });
+
 })

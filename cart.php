@@ -20,6 +20,19 @@
     $callback_total_price_result = $callback_total_price -> get_result();
     $total_price_row = $callback_total_price_result->fetch_assoc();
     $total_price = $total_price_row['total_price'];
+
+    $_SESSION['shipping_info'] = [
+        'name_or_company' => isset($_SESSION['shipping_info']['name_or_company']) ? $_SESSION['shipping_info']['name_or_company'] : '',
+        'telephone' => isset($_SESSION['shipping_info']['telephone']) ? $_SESSION['shipping_info']['telephone'] : '',
+        'id_card_or_passport' => isset($_SESSION['shipping_info']['id_card_or_passport']) ? $_SESSION['shipping_info']['id_card_or_passport'] : '',
+        'location_delivery' => isset($_SESSION['shipping_info']['location_delivery']) ? $_SESSION['shipping_info']['location_delivery'] : ''
+    ];
+
+    $_SESSION['tax_info'] = [
+        'name_or_company_tax' => isset($_SESSION['tax_info']['name_or_company_tax']) ? $_SESSION['tax_info']['name_or_company_tax'] : '',
+        'idCard_or_idCompany' => isset($_SESSION['tax_info']['idCard_or_idCompany']) ? $_SESSION['tax_info']['idCard_or_idCompany'] : '',
+        'address_tax' => isset($_SESSION['tax_info']['address_tax']) ? $_SESSION['tax_info']['address_tax'] : '',
+    ]
 ?>
 
 <!DOCTYPE html>
@@ -44,10 +57,10 @@
             <div id="modal_location_delivery">
                 <span class="close_modal_shipping">x</span>
                 <input type="hidden" name="shipping_info" value="shipping_info">
-                <input class="input_blank" type="text" placeholder="name or company" name="name_or_company">
-                <input class="input_blank" type="text" placeholder="id-card or passport" name="id_card_or_passport">
-                <input class="input_blank" type="text" placeholder="location delivery" name="location_delivery"> 
-                <input class="input_blank" type="text" placeholder="tel" name="telephone">
+                <input class="input_blank" type="text" placeholder="name or company" name="name_or_company" value="<?php echo $_SESSION['shipping_info']['name_or_company'] ?>">
+                <input class="input_blank" type="text" placeholder="id-card or passport" name="id_card_or_passport" value="<?php echo $_SESSION['shipping_info']['id_card_or_passport'] ?>">
+                <input class="input_blank" type="text" placeholder="location delivery" name="location_delivery" value="<?php echo $_SESSION['shipping_info']['location_delivery'] ?>"> 
+                <input class="input_blank" type="text" placeholder="tel" name="telephone" value="<?php echo $_SESSION['shipping_info']['telephone'] ?>">
                 <span class="change_modal_between_delivery_and_tax" style="position: absolute; top: 50%; right: 2rem; cursor: pointer">tax invoice<img src="PicZedere/left-right-arrows_10624289.png" style="width: 50px; height: 50px;"></span>
                 <button type="submit">Add Shipping Location</button>
             </div>
@@ -56,9 +69,9 @@
             <div id="modal_tax_invoice">
                 <span class="close_modal_shipping">x</span>
                 <input type="hidden" name="tax_info" value="tax_info">
-                <input class="input_blank" type="text" placeholder="name or company" name="name_or_company_tax">
-                <input class="input_blank" type="text" placeholder="id-card or passport" name="id_card_or_passport_tax">
-                <input class="input_blank" type="text" placeholder="address tax-Invoice" name="address_tax_Invoice">
+                <input class="input_blank" type="text" placeholder="name or company" name="name_or_company_tax" value="<?php echo $_SESSION['tax_info']['name_or_company_tax'] ?>">
+                <input class="input_blank" type="text" placeholder="id-card or passport" name="id_card_or_passport_tax" value="<?php echo $_SESSION['tax_info']['idCard_or_idCompany'] ?>">
+                <input class="input_blank" type="text" placeholder="address tax-Invoice" name="address_tax_Invoice" value="<?php echo $_SESSION['tax_info']['address_tax'] ?>">
                 <span class="change_modal_between_delivery_and_tax" style="position: absolute; top: 50%; left: 2rem; cursor: pointer"><img src="PicZedere/left-right-arrows_10624289.png" style="width: 50px; height: 50px;">location delivery</span>
                 <button type="submit">Add tax-Invoice</button>
             </div>
@@ -95,13 +108,14 @@
             </table>
             <div class="buy_item">
                 <div class="total_price_container">
-                    <h3 class="total_price"></h3>
+                    <h3 class="total_price">Total Price: 0 ฿</h3>
                 </div>
                 <div class="action_buttons">
                     <button id="add_address_button">Shipping information</button>
-                    <button class="buy_button">Buy Now</button>
+                    <button class="buy_button" disabled>Buy Now</button>
                 </div>
             </div>
+
     <?php } ?>
 
     <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
